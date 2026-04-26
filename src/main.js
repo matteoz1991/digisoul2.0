@@ -16,17 +16,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Mobile Menu Toggle
   const mobileBtn = document.querySelector('.nav-mobile-btn');
+  const mobileTrigger = document.getElementById('mobile-menu-trigger');
   const navLinks = document.querySelector('.nav-links');
   
-  if (mobileBtn && navLinks) {
-    mobileBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
+  const toggleMenu = () => {
+    navLinks.classList.toggle('active');
+    // Change icon if using mobileTrigger
+    if (mobileTrigger) {
+      const icon = mobileTrigger.querySelector('iconify-icon');
+      if (navLinks.classList.contains('active')) {
+        icon.setAttribute('icon', 'lucide:x');
+      } else {
+        icon.setAttribute('icon', 'lucide:menu');
+      }
+    }
+  };
 
+  if (mobileBtn && navLinks) {
+    mobileBtn.addEventListener('click', toggleMenu);
+  }
+
+  if (mobileTrigger && navLinks) {
+    mobileTrigger.addEventListener('click', toggleMenu);
+  }
+
+  if (navLinks) {
     // Close menu when a link is clicked
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
+        if (mobileTrigger) {
+          mobileTrigger.querySelector('iconify-icon').setAttribute('icon', 'lucide:menu');
+        }
       });
     });
   }
@@ -90,7 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
         "/port-centrum-hero.png",
         "/port-centrum-services.png",
         "/port-centrum-contact.png"
-      ]
+      ],
+      liveLink: "https://www.centrumlack.se"
     },
     oakdesign: {
       title: "Oak Design Door",
@@ -103,7 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
         "/port-oak-hero.png",
         "/port-oak-products.png",
         "/port-oak-staff.png"
-      ]
+      ],
+      liveLink: "https://oakdesign.vercel.app/"
     },
     avtalsvaggen: {
       title: "Avtalsväggen",
@@ -124,6 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalDesc = document.getElementById('modal-desc');
   const modalTechList = document.getElementById('modal-tech-list');
   const modalGallery = document.getElementById('modal-gallery');
+  const modalLiveLink = document.getElementById('modal-live-link');
   const closeBtn = document.getElementById('close-modal');
 
   const openModal = (projectId) => {
@@ -135,6 +159,14 @@ document.addEventListener('DOMContentLoaded', () => {
     modalCat.textContent = data.category;
     modalDesc.textContent = data.desc;
     modalImg.src = data.images[0];
+    
+    // Live link button
+    if (data.liveLink) {
+      modalLiveLink.href = data.liveLink;
+      modalLiveLink.style.display = 'flex';
+    } else {
+      modalLiveLink.style.display = 'none';
+    }
 
     // Tech tags
     modalTechList.innerHTML = '';
