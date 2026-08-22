@@ -275,10 +275,13 @@
               </div>
             </div>
             <form class="contact-form" id="contactForm">
-              
+
+              <!-- Honeypot spam-skydd, ska alltid vara tom -->
+              <input type="checkbox" name="botcheck" style="display: none;" tabindex="-1" autocomplete="off">
+
               <div class="form-group-pilled">
                 <label>Tjänst</label>
-                <div class="pill-options">
+                <div class="pill-options" id="service-pills">
                   <span class="pill-input active">Bas</span>
                   <span class="pill-input">Mellan</span>
                   <span class="pill-input">Premium</span>
@@ -289,7 +292,7 @@
 
               <div class="form-group-pilled">
                 <label>Budget</label>
-                <div class="pill-options">
+                <div class="pill-options" id="budget-pills">
                   <span class="pill-input active">Under 15k</span>
                   <span class="pill-input">15k - 50k</span>
                   <span class="pill-input">Över 50k</span>
@@ -299,20 +302,21 @@
               <div class="form-row">
                 <div class="form-group">
                   <label for="name">Fullständigt namn*</label>
-                  <input type="text" id="name" placeholder="John Doe" required>
+                  <input type="text" id="name" name="name" placeholder="John Doe" required>
                 </div>
                 <div class="form-group">
                   <label for="email">E-post*</label>
-                  <input type="email" id="email" placeholder="john@example.com" required>
+                  <input type="email" id="email" name="email" placeholder="john@example.com" required>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="details">Projektdetaljer*</label>
-                <textarea id="details" rows="4" placeholder="Beskriv vad du vill åstadkomma..." required></textarea>
+                <textarea id="details" name="message" rows="4" placeholder="Beskriv vad du vill åstadkomma..." required></textarea>
               </div>
 
               <button type="submit" class="btn btn-primary btn-block">Skicka förfrågan</button>
+              <p id="form-status" class="form-status"></p>
             </form>
           </div>
         </div>

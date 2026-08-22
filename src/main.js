@@ -82,6 +82,77 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Contact Form Submission (via Web3Forms - se README för hur man byter access key)
+  const WEB3FORMS_ACCESS_KEY = 'be37c998-6a51-4dd3-8475-d50330156e96';
+  const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('form-status');
+
+  const getActivePill = (groupId) => {
+    const group = document.getElementById(groupId);
+    return group?.querySelector('.pill-input.active')?.textContent.trim() || '';
+  };
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Skickar...';
+      formStatus.textContent = '';
+      formStatus.className = 'form-status';
+
+      const nameValue = document.getElementById('name').value;
+      const emailValue = document.getElementById('email').value;
+      const messageValue = document.getElementById('details').value;
+      const botcheckValue = contactForm.querySelector('input[name="botcheck"]').checked;
+
+      const payload = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: 'Ny förfrågan från digisoul.se',
+        from_name: nameValue,
+        name: nameValue,
+        email: emailValue,
+        tjänst: getActivePill('service-pills'),
+        budget: getActivePill('budget-pills'),
+        message: messageValue,
+        botcheck: botcheckValue
+      };
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+
+        if (result.success) {
+          formStatus.textContent = 'Tack! Din förfrågan är skickad — vi hör av oss inom kort.';
+          formStatus.classList.add('success');
+          contactForm.reset();
+          document.querySelectorAll('.pill-options').forEach(group => {
+            const pills = group.querySelectorAll('.pill-input');
+            pills.forEach(p => p.classList.remove('active'));
+            pills[0]?.classList.add('active');
+          });
+        } else {
+          throw new Error(result.message || 'Något gick fel');
+        }
+      } catch (error) {
+        formStatus.textContent = 'Kunde inte skicka förfrågan. Prova igen eller maila oss direkt på info@digisoul.se.';
+        formStatus.classList.add('error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }
+    });
+  }
+
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

@@ -713,6 +713,19 @@ ul {
   border-color: rgba(255,184,224, 0.5);
   background: rgba(255,255,255,0.05);
 }
+.form-status {
+  font-size: 0.9rem;
+  text-align: center;
+}
+.form-status:not(:empty) {
+  margin-top: 1rem;
+}
+.form-status.success {
+  color: var(--c-success);
+}
+.form-status.error {
+  color: #F87171;
+}
 
 /* --- Testimonial --- */
 .testimonial-section {
