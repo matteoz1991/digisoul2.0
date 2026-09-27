@@ -159,6 +159,12 @@ h3 {
   background: var(--color-paper);
   border-bottom: 2px solid var(--color-ink);
   padding: var(--space-sm) 0;
+  box-shadow: 0 2px 8px rgba(43, 37, 32, 0.08);
+}
+
+/* Scroll margin for anchor links */
+section {
+  scroll-margin-top: 80px;
 }
 
 .nav-content {
@@ -168,8 +174,13 @@ h3 {
 }
 
 .nav-logo {
-  height: 40px;
+  height: 32px;
   width: auto;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
 }
 
 .nav-links {
@@ -401,6 +412,9 @@ h3 {
   overflow: hidden;
   background: #F5F5F5;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .case-image img {
@@ -408,6 +422,32 @@ h3 {
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s;
+}
+
+/* Browser frame effect for screenshots */
+.case-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 24px;
+  background: #E8E8E8;
+  border-bottom: 1px solid #D0D0D0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.case-image::after {
+  content: '● ● ●';
+  position: absolute;
+  top: 6px;
+  left: 12px;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #999;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .case-card:hover .case-image img {
