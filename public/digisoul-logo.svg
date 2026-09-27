@@ -1,0 +1,15 @@
+<svg width="240" height="50" viewBox="0 0 240 50" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .logo-text {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: 28px;
+      fill: #2B2520;
+    }
+    .accent-mark {
+      fill: #C84B31;
+    }
+  </style>
+  <text x="10" y="35" class="logo-text">Digisoul Media</text>
+  <circle cx="232" cy="28" r="4" class="accent-mark"/>
+</svg>
