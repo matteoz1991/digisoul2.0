@@ -159,6 +159,13 @@ document.addEventListener('DOMContentLoaded', () => {
       desc: "Vi fick i uppdrag att bygga Avtalsväggen – en modern SaaS-tjänst! Huvudfokus var att utveckla en avancerad AI-plattform som automatiskt tar fram skräddarsydda dokument när användaren fyller i ett formulär. Systemet säkerställer att alla avtal strikt följer Sveriges lagar och juridiska regelverk. Vi ansvarade för hela processen från UX/UI-design till AI-integration och backend-utveckling.",
       tech: ["SaaS", "Systemutveckling", "UX/UI Design", "AI Integration"],
       images: ["/port-avtals.png", "/port-avtals-2.png", "/port-avtals-3.png", "/port-avtals-4.png"]
+    },
+    edberg: {
+      title: "Mr. Edberg Art",
+      category: "Graffiti & Street Art",
+      desc: "Webbplats för graffiti- och popkonstnär med ett kraftfullt svart tema som låter konstverken stå i centrum. Hemsidan har en handritad logotyp, ett galleri som visar upp konstverk på väggar, och en e-handelssektion som förbereder för försäljning. Designen balanserar det råa gatukonstuttrycket med en ren, modern användarupplevelse.",
+      tech: ["Webbutveckling", "E-handel", "Galleri", "Branding"],
+      images: ["/cases/edberg-hero.png", "/cases/edberg-gallery.png", "/cases/edberg-shop.png"]
     }
   };
 
