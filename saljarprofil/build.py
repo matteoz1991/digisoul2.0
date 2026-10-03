@@ -56,6 +56,8 @@ for jp in sorted(glob.glob(os.path.join(D,'data','*.json'))):
     for u in p.get('uppdrag',[]):
         tags=''.join(f'<span>{E(t)}</span>' for t in u.get('taggar',[]))
         link=f'<a class="link" href="{E(u["url"])}" rel="noopener" target="_blank">Besök {E(u["url"].split("//")[-1].strip("/"))} <span aria-hidden="true">↗</span></a>' if u.get('url') else ''
+        if not link and u.get('adress'):
+            link=f'<span class="link">{E(u["adress"])}</span>'
         up+=f'<article class="case"><span class="tag">{E(u.get("typ","UPPDRAG").upper())}</span><h3>{E(u["namn"])}</h3><p>{E(u.get("beskrivning",""))}</p><div class="tags">{tags}</div>{link}</article>'
     for _ in range(int(p.get('uppdrag_platshallare',0))):
         up+='<article class="case empty" aria-label="Plats för kommande uppdrag"><span class="tag">KOMMANDE UPPDRAG</span><h3>Här visas nästa kund.</h3><p>Platsen fylls när uppdraget är klart och kunden har godkänt att synas.</p></article>'

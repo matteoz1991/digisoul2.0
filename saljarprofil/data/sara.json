@@ -22,9 +22,10 @@
     {"rubrik": "Drift · 399 kr/mån", "text": "Drift, säkerhet och support som frivilligt tillval."}
   ],
   "uppdrag": [
-    {"namn": "Centrum Lack", "typ": "Digisoul-case", "beskrivning": "En webbplats för ett företag med över 35 års erfarenhet av fordonslackering. Webbutveckling, SEO och visuell utformning.", "url": "https://centrumlack.se/", "taggar": ["Webbutveckling", "SEO", "Branding"]}
+    {"namn": "Centrum Lack", "typ": "Digisoul-case", "beskrivning": "En webbplats för ett företag med över 35 års erfarenhet av fordonslackering. Webbutveckling, SEO och visuell utformning.", "url": "https://centrumlack.se/", "taggar": ["Webbutveckling", "SEO", "Branding"]},
+    {"namn": "Mr. Edberg Art", "typ": "Pågående uppdrag", "beskrivning": "Sara har bland annat hjälpt till med fotografering för Mr. Edberg Art.", "adress": "edbergart.se", "taggar": ["Fotografering"]}
   ],
-  "uppdrag_platshallare": 2,
+  "uppdrag_platshallare": 1,
   "omdomen": [],
   "_omdomen_not": "Endast verkliga, godkända omdömen. Format: {\"namn\": \"...\", \"foretag\": \"...\", \"betyg\": 5, \"text\": \"...\", \"datum\": \"2026-10-03\"}"
 }

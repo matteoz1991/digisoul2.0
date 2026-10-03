@@ -30,7 +30,7 @@ Redigera `data/anna.json` och fyll i:
 - `epost`: e-postadress
 - `presentation`: array med stycken som beskriver säljaren
 - `hjalper_till_med`: lista över tjänster
-- `uppdrag`: lista över genomförda projekt (valfritt)
+- `uppdrag`: lista över projekt (valfritt). Använd `url` för en fungerande länk eller `adress` för en ännu opublicerad webbadress som visas som text.
 - `omdomen`: lämna tom tills verkliga omdömen finns
 
 ### 3. Bygg profilerna
