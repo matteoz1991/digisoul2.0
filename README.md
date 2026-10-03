@@ -1,30 +1,20 @@
-# Digisoul V2 - JM Bygg
+# Digisoul Media
 
-Det här är ett modernt webbprojekt byggt med **Vite** och **React/JS**.
+Den nya webbplatsen för Digisoul Media. Startsidan byggs av Vite från `index.html` och statiska resurser i `public/`. Befintliga kundprojekt under `public/projects/` finns kvar.
 
-## Snabbstart för utveckling
+## Lokalt
 
-För att köra igång projektet lokalt efter att du laddat ner det från GitHub:
-
-1. Öppna mappen i din terminal (t.ex. VS Code Terminal).
-2. Installera alla nödvändiga verktyg (som du just nu inte ser på GitHub eftersom de är för tunga):
-   ```bash
-   npm install
-   ```
-3. Starta utvecklingsservern:
-   ```bash
-   npm run dev
-   ```
-4. Besök länken som visas i terminalen (oftast `http://localhost:5173`).
-
-## Varför ser jag inte alla mappar (node_modules)?
-
-Mappen `node_modules` innehåller tusentals filer som behövs för att verktygen ska fungera, men de ska inte laddas upp till GitHub. Genom att köra `npm install` återskapas de på din dator på några sekunder. Detta håller projektet rent och snabbt att ladda upp/ner.
-
-## Bygg för produktion
-
-När du är redo att ladda upp projektet till en webbserver:
 ```bash
+npm ci
+npm run dev
+npm test
 npm run build
 ```
-Innehållet i mappen `dist` är det som ska laddas upp till din webbserver.
+
+## Vercel
+
+Vercel-projektet ska använda repots rot som Root Directory, Vite som framework och `npm run build` som Build Command. Vite publicerar `dist/`; Vercel publicerar dessutom `api/contact.js` som funktion på `/api/contact`.
+
+Kontaktformuläret behöver följande miljövariabler i Vercel: `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` och `MAIL_FROM`. Använd en verifierad avsändaradress som SMTP-kontot tillåter. Mottagaren är fast `info@digisoul.se`. Utan dessa variabler ger API:t ett tydligt fel och inga meddelanden räknas som skickade. Hemligheter ska aldrig läggas i Git. `.env.example` visar fälten utan lösenord.
+
+Kontrollera förhandsversion och gör ett riktigt formulärtest innan produktionsgrenen publiceras. Om samma Vercel-projekt fortsätter använda `digisoul.se` behövs normalt ingen ändring av DNS hos STRATO.

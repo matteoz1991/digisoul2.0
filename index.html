@@ -1,445 +1,56 @@
 <!doctype html>
 <html lang="sv">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digisoul Media - Webb & UX Design</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Iconify -->
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <link rel="stylesheet" href="./src/style.css">
-  </head>
-  <body>
-    <!-- Background glow map -->
-    <div class="bg-glow"></div>
-
-    <a href="#hero" class="page-logo-link">
-      <img src="./public/logga1_trans.png" alt="Digisoul Media" class="page-logo" />
-    </a>
-
-    <!-- Pilled Sticky Nav -->
-    <nav class="nav-pill">
-      <ul class="nav-links">
-        <li><a href="#hero"><iconify-icon icon="lucide:home"></iconify-icon><span>Hem</span></a></li>
-        <li><a href="#services"><iconify-icon icon="lucide:layout-grid"></iconify-icon><span>Tjänster</span></a></li>
-        <li><a href="#portfolio"><iconify-icon icon="lucide:briefcase"></iconify-icon><span>Portfolio</span></a></li>
-        <li><a href="#pricing"><iconify-icon icon="lucide:tag"></iconify-icon><span>Priser</span></a></li>
-        <li><a href="#contact"><iconify-icon icon="lucide:mail"></iconify-icon><span>Kontakt</span></a></li>
-      </ul>
-      <div class="nav-mobile-btn">
-        <iconify-icon icon="lucide:menu" width="24" height="24"></iconify-icon>
-      </div>
-    </nav>
-
-    <main>
-      <!-- Hero Section -->
-      <section id="hero" class="hero">
-        <div class="hero-bg">
-          <img src="./public/hero-bg-v2.png" alt="Hero Background">
-          <div class="hero-bg-overlay"></div>
-        </div>
-        
-        <div class="container hero-content animate-up text-center">
-          <!-- status indicator removed to look less generic -->
-          <h1 class="hero-title">Vi bygger webbplatser som <span class="text-gradient">säljer</span><br><span style="font-size: 0.6em; opacity: 0.9; color: var(--c-text-muted);">— för företagare som menar allvar.</span></h1>
-          <p class="hero-subtitle mx-auto">Skräddarsydd webbutveckling, innovativ design och smarta digitala strategier för att driva din affär framåt.</p>
-          <div class="hero-actions justify-center">
-            <a href="#contact" class="btn btn-primary">Hör av dig <iconify-icon icon="lucide:arrow-right"></iconify-icon></a>
-            <a href="#portfolio" class="btn btn-secondary">Våra projekt</a>
-          </div>
-        </div>
-
-        <!-- hero stats removed temporarily -->
-      </section>
-
-      <!-- Digital Business Card -->
-      <section id="about" class="business-card-section">
-        <div class="container">
-          <div class="glass-card b-card animate-up">
-            <div class="b-card-image">
-              <img src="./public/mattias-portrait.png" alt="Mattias - Digisoul Media">
-            </div>
-            <div class="b-card-info">
-              <h2>Mattias</h2>
-              <p class="b-role">Webbdesigner & Digital Konsult</p>
-              <div class="b-bio">
-                <p>Jag heter Mattias och driver Digisoul Media — en webbyrå i Göteborg där jag hjälper företagare att synas, sticka ut och växa online.</p>
-                <p style="margin-top: 1rem;">Jag jobbar med webbutveckling, digital design och branding, SEO och consulting — allt under ett tak. Jag gillar att arbeta nära mina kunder och leverera lösningar som faktiskt gör skillnad för affären, inte bara ser bra ut på skärmen.</p>
-              </div>
-
-              <div class="b-contact-links">
-                <a href="tel:+46737255718" class="btn btn-outline">
-                  <iconify-icon icon="lucide:phone"></iconify-icon> 073-725 57 18
-                </a>
-                <a href="mailto:info@digisoul.se" class="btn btn-outline">
-                  <iconify-icon icon="lucide:mail"></iconify-icon> info@digisoul.se
-                </a>
-                <a href="mailto:mattias@digisoul.se" class="btn btn-outline">
-                  <iconify-icon icon="lucide:user"></iconify-icon> mattias@digisoul.se
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="glass-card b-card animate-up delay-1" style="margin-top: 3rem;">
-            <div class="b-card-image">
-              <img src="./public/Sara.png" alt="Sara - Digisoul Media">
-            </div>
-            <div class="b-card-info">
-              <h2>Sara</h2>
-              <p class="b-role">Säljare & Kundansvarig</p>
-              <div class="b-bio">
-                <p>Jag heter Sara och är säljare på Digisoul Media. Jag är ofta den du pratar med först — jag lyssnar på vad du vill uppnå och hjälper dig hitta rätt lösning för just din verksamhet, utan krångel eller säljsnack.</p>
-                <p style="margin-top: 1rem;">För mig handlar det om att bygga långsiktiga relationer och se till att du känner dig trygg genom hela processen, från första samtalet till lanserad hemsida. Hör gärna av dig om du vill boka ett förutsättningslöst möte.</p>
-              </div>
-
-              <div class="b-contact-links">
-                <a href="tel:+46701484678" class="btn btn-outline">
-                  <iconify-icon icon="lucide:phone"></iconify-icon> 070-148 46 78
-                </a>
-                <a href="mailto:info@digisoul.se" class="btn btn-outline">
-                  <iconify-icon icon="lucide:mail"></iconify-icon> info@digisoul.se
-                </a>
-                <a href="mailto:sara@digisoul.se" class="btn btn-outline">
-                  <iconify-icon icon="lucide:user"></iconify-icon> sara@digisoul.se
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Services Section -->
-      <section id="services" class="services-section">
-        <div class="container">
-          <h2 class="section-title animate-up">Våra <span>Tjänster</span></h2>
-          <div class="services-grid">
-            <div class="glass-card service-card animate-up">
-              <iconify-icon icon="lucide:layout-template" class="service-icon"></iconify-icon>
-              <h3>Hemsidebygge</h3>
-              <p>Få fler kunder och öka försäljningen med en blixtsnabb hemsida. Den designas konverteringsoptimerad och inkluderar alltid grundläggande teknisk SEO för att synas på Google.</p>
-            </div>
-            <div class="glass-card service-card animate-up delay-1">
-              <iconify-icon icon="lucide:pen-tool" class="service-icon"></iconify-icon>
-              <h3>Digital Design & Branding</h3>
-              <p>Stärk ert varumärke med en modern grafisk profil som bygger förtroende och får er att sticka ut.</p>
-            </div>
-            <div class="glass-card service-card animate-up delay-2">
-              <iconify-icon icon="lucide:cpu" class="service-icon"></iconify-icon>
-              <h3>Consulting & AI-automation</h3>
-              <p>Spara tid och sänk kostnader. Vi hjälper er att effektivisera processer och fatta smartare digitala beslut.</p>
-            </div>
-          </div>
-          <div class="services-footer animate-up" style="text-align: center; margin-top: 4rem;">
-            <a href="./public/prislista2026.pdf" download="prislista2026.pdf" class="btn btn-secondary">
-              <iconify-icon icon="lucide:file-down"></iconify-icon> Ladda ner fullständig prislista (PDF)
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Portfolio Section -->
-      <section id="portfolio" class="portfolio-section">
-        <div class="container">
-          <h2 class="section-title animate-up">Utvalda <span>Projekt</span></h2>
-          <div class="portfolio-grid">
-            <!-- Centrum Lack -->
-            <div class="portfolio-card glass-card animate-up" data-project="centrumlack">
-              <div class="port-img-wrap">
-                <div class="port-badge">Bas</div>
-                <img src="./public/port-centrum-logo.png" alt="Centrum Lack" class="port-main-img">
-                <div class="port-overlay">
-                  <span class="btn btn-primary btn-sm">Läs mer →</span>
-                </div>
-              </div>
-              <div class="port-info">
-                <span>Professionell Lackering</span>
-                <h3>Centrum Lack</h3>
-              </div>
-            </div>
-            <!-- Oak Design Door -->
-            <div class="portfolio-card glass-card animate-up delay-1" data-project="oakdesign">
-              <div class="port-img-wrap">
-                <div class="port-badge">Mellan</div>
-                <img src="./public/port-oak-logo.png" alt="Oak Design Door" class="port-main-img">
-                <div class="port-overlay">
-                  <span class="btn btn-primary btn-sm">Läs mer →</span>
-                </div>
-              </div>
-              <div class="port-info">
-                <span>Premiumsnickeri</span>
-                <h3>Oak Design Door</h3>
-              </div>
-            </div>
-            <!-- Avtalsväggen -->
-            <div class="portfolio-card glass-card animate-up delay-2" data-project="avtalsvaggen">
-              <div class="port-img-wrap">
-                <div class="port-badge">Premium</div>
-                <img src="./public/port-avtals.png" alt="Avtalsväggen" class="port-main-img">
-                <div class="port-overlay">
-                  <span class="btn btn-primary btn-sm">Läs mer →</span>
-                </div>
-              </div>
-              <div class="port-info">
-                <span>Juridisk SaaS</span>
-                <h3>Avtalsväggen</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Testimonial Section -->
-      <section class="testimonial-section">
-        <div class="container animate-up">
-          <div class="glass-card testimonial-card">
-            <iconify-icon icon="lucide:quote" class="quote-icon"></iconify-icon>
-            <p class="quote-text">"Sedan vi bytte till Digisoul Media har vi sett en otrolig ökning i våra konverteringar. Deras förmåga att skapa webbplatser som faktiskt säljer är oslagbar."</p>
-            <div class="quote-author">
-               <strong>Johan Svensson</strong>
-               <span>VD, TechNord AB</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Pricing Section -->
-      <section id="pricing" class="pricing-section">
-        <div class="container">
-          <h2 class="section-title animate-up">Tydliga <span>Priser</span></h2>
-          <div class="pricing-grid">
-            <div class="glass-card pricing-card animate-up">
-              <h3>Bas</h3>
-              <div class="price">4 900<span>kr</span></div>
-              <p>Enkel och effektiv startsida för att synas online snabbt.</p>
-              <ul>
-                <li><iconify-icon icon="lucide:check"></iconify-icon> 1–3 sidor</li>
-                <li><iconify-icon icon="lucide:check"></iconify-icon> Responsiv design</li>
-                <li><iconify-icon icon="lucide:check"></iconify-icon> Kontaktformulär</li>
-                <li><iconify-icon icon="lucide:check"></iconify-icon> Grundläggande SEO</li>
-              </ul>
-            </div>
-            <div class="glass-card pricing-card featured animate-up delay-1">
-              <div class="badge">Populärast</div>
-              <h3>Mellan</h3>
-              <div class="price">9 900<span>kr</span></div>
-              <p>För företaget som behöver en komplett och säljande lösning.</p>
-              <ul>
-                <li><iconify-icon icon="lucide:check"></iconify-icon> 5–8 sidor</li>
-                <li><iconify-icon icon="lucide:check"></iconify-icon> Unik design</li>
-                <li><iconify-icon icon="lucide:check"></iconify-icon> SEO-optimerad</li>
-                <li><iconify-icon icon="lucide:check"></iconify-icon> Google Analytics</li>
-              </ul>
-            </div>
-            <div class="glass-card pricing-card animate-up delay-2">
-              <h3>Premium</h3>
-              <div class="price">19 900<span>kr+</span></div>
-              <p>Kraftfull webbplats med tunga integrationer och skräddarsydd funktionalitet.</p>
-              <ul>
-                <li><iconify-icon icon="lucide:check"></iconify-icon> 10+ sidor</li>
-                <li><iconify-icon icon="lucide:check"></iconify-icon> Bokningssystem</li>
-                <li><iconify-icon icon="lucide:check"></iconify-icon> Flerspråkig miljö</li>
-                <li><iconify-icon icon="lucide:check"></iconify-icon> Avancerade integrationer</li>
-              </ul>
-            </div>
-          </div>
-          <div style="text-align: center; margin-top: 3rem;" class="animate-up">
-             <div class="pricing-footnote" style="margin-bottom: 2rem;">
-               <em>*Drift, säkerhet och support erbjuds som ett frivilligt tillval för 399 kr/mån. Under de 3 första månaderna ingår dessutom 1 kostnadsfri ändring per månad. Väljer du att själv ansvara för hosting eller köra utan vårt säkerhetspaket tillkommer inga som helst månadskostnader. Logodesign och Google Ads-uppsättning köps precis som vanligt genom tillval.</em>
-             </div>
-             <a href="#contact" class="btn btn-outline">Osäker på vilket paket som passar? Kontakta mig</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact Section -->
-      <section id="contact" class="contact-section">
-        <div class="container animate-up">
-          <div class="glass-card contact-wrapper">
-            <div class="contact-info">
-              <h2>Redo att sätta <br><span>igång?</span></h2>
-              <div class="contact-benefits">
-                <p><iconify-icon icon="lucide:check-circle-2" class="success"></iconify-icon> Vi svarar oftast inom 12 timmar</p>
-                <p><iconify-icon icon="lucide:check-circle-2" class="success"></iconify-icon> Vi kan teckna NDA vid behov</p>
-                <p><iconify-icon icon="lucide:check-circle-2" class="success"></iconify-icon> Direkttillgång till expertkonsult</p>
-              </div>
-              <div class="contact-direct mt-auto">
-                <a href="mailto:info@digisoul.se" class="mail-link">info@digisoul.se</a>
-                <p>Kort om tid? Boka ett direktmöte.</p>
-                <a href="#" class="btn btn-outline btn-sm mt-3">Boka ett möte</a>
-              </div>
-            </div>
-            <form class="contact-form" id="contactForm">
-
-              <!-- Honeypot spam-skydd, ska alltid vara tom -->
-              <input type="checkbox" name="botcheck" style="display: none;" tabindex="-1" autocomplete="off">
-
-              <div class="form-group-pilled">
-                <label>Tjänst</label>
-                <div class="pill-options" id="service-pills">
-                  <span class="pill-input active">Bas</span>
-                  <span class="pill-input">Mellan</span>
-                  <span class="pill-input">Premium</span>
-                  <span class="pill-input">Abonnemang/Drift</span>
-                  <span class="pill-input">Annat</span>
-                </div>
-              </div>
-
-              <div class="form-group-pilled">
-                <label>Budget</label>
-                <div class="pill-options" id="budget-pills">
-                  <span class="pill-input active">Under 15k</span>
-                  <span class="pill-input">15k - 50k</span>
-                  <span class="pill-input">Över 50k</span>
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="name">Fullständigt namn*</label>
-                  <input type="text" id="name" name="name" placeholder="John Doe" required>
-                </div>
-                <div class="form-group">
-                  <label for="email">E-post*</label>
-                  <input type="email" id="email" name="email" placeholder="john@example.com" required>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="details">Projektdetaljer*</label>
-                <textarea id="details" name="message" rows="4" placeholder="Beskriv vad du vill åstadkomma..." required></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-block">Skicka förfrågan</button>
-              <p id="form-status" class="form-status"></p>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <!-- Cookie Settings Modal -->
-      <div id="cookie-settings-modal" class="modal">
-        <div class="modal-backdrop" id="cookie-settings-backdrop"></div>
-        <div class="modal-container glass-card cookie-settings-wrap">
-          <button id="close-cookie-settings" class="modal-close">&times;</button>
-          <div class="cookie-settings-header">
-            <h2>Cookie-<span>inställningar</span></h2>
-            <p>Välj vilka cookies du tillåter oss använda. Nödvändiga cookies krävs för att webbplatsen ska fungera.</p>
-          </div>
-          <div class="cookie-settings-body">
-            <div class="cookie-option">
-              <div class="cookie-option-info">
-                <h3>Nödvändiga</h3>
-                <p>Krävs för grundläggande funktioner såsom säkerhet och nätverkshantering.</p>
-              </div>
-              <label class="toggle">
-                <input type="checkbox" checked disabled>
-                <span class="slider"></span>
-              </label>
-            </div>
-            <div class="cookie-option">
-              <div class="cookie-option-info">
-                <h3>Analys</h3>
-                <p>Hjälper oss förstå hur besökare interagerar med webbplatsen för att förbättra upplevelsen.</p>
-              </div>
-              <label class="toggle">
-                <input type="checkbox" id="cookie-opt-analytics">
-                <span class="slider"></span>
-              </label>
-            </div>
-            <div class="cookie-option">
-              <div class="cookie-option-info">
-                <h3>Marknadsföring</h3>
-                <p>Används för att visa relevanta annonser och mäta deras effektivitet.</p>
-              </div>
-              <label class="toggle">
-                <input type="checkbox" id="cookie-opt-marketing">
-                <span class="slider"></span>
-              </label>
-            </div>
-          </div>
-          <div class="cookie-settings-footer">
-            <button id="cookie-save-choices" class="btn btn-secondary btn-block">Spara mina val</button>
-            <button id="cookie-accept-modal" class="btn btn-primary btn-block">Godkänn alla</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project Modal -->
-      <div id="project-modal" class="modal">
-        <div class="modal-backdrop"></div>
-        <div class="modal-container glass-card">
-          <button id="close-modal" class="modal-close">&times;</button>
-          <div class="modal-grid">
-            <div class="modal-visual">
-              <div class="modal-main-img-wrap">
-                <img id="modal-img" src="" alt="Projekt">
-              </div>
-              <div id="modal-gallery" class="modal-gallery">
-                <!-- Thumbs injected by JS -->
-              </div>
-            </div>
-            <div class="modal-content">
-              <div class="modal-header">
-                <span id="modal-badge" class="badge">Paket</span>
-                <h2 id="modal-title">Projektnamn</h2>
-                <p id="modal-cat" class="text-gradient">Kategori</p>
-              </div>
-              <div class="modal-body">
-                <h3>Om projektet</h3>
-                <p id="modal-desc">Beskrivning...</p>
-                <div class="modal-tech">
-                  <h3>Teknologi</h3>
-                  <div id="modal-tech-list" class="tech-tags">
-                    <!-- Tags injected by JS -->
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <a href="#" target="_blank" class="btn btn-live btn-block" id="modal-live-link" style="display: none;">
-                  <span class="blink-dot"></span> Se sidan live
-                </a>
-                <a href="#contact" class="btn btn-primary btn-block" id="modal-cta">Jag vill ha något liknande</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" class="cookie-banner display-none">
-      <div class="cookie-content">
-        <div class="cookie-text-wrap">
-          <iconify-icon icon="lucide:cookie" class="cookie-icon"></iconify-icon>
-          <p>Vi använder cookies för att optimera din upplevelse och analysera trafik på vår webbplats.</p>
-        </div>
-        <div class="cookie-actions">
-          <button id="cookie-accept" class="btn btn-primary btn-sm">Acceptera alla</button>
-          <button id="cookie-settings" class="btn btn-secondary btn-sm">Inställningar</button>
-        </div>
-      </div>
-    </div>
-
-    <footer class="footer">
-      <div class="container text-center">
-        <p>&copy; 2026 Digisoul Media. Alla rättigheter reserverade.</p>
-      </div>
-    </footer>
-
-    <!-- Floating Mobile Menu Trigger -->
-    <button id="mobile-menu-trigger" class="mobile-menu-trigger" aria-label="Öppna meny">
-      <iconify-icon icon="lucide:menu"></iconify-icon>
-    </button>
-
-    <!-- Floating Cookie Trigger -->
-    <button id="cookie-reopen-btn" class="cookie-reopen-btn" aria-label="Cookie-inställningar">
-      <iconify-icon icon="lucide:cookie"></iconify-icon>
-      <span class="cookie-label">Cookies</span>
-    </button>
-
-    <script type="module" src="./src/main.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Digisoul Media — Digitalt hantverk. Med själ.</title>
+  <meta name="description" content="Digisoul Media är en webbstudio i Göteborg. Vi hjälper företag med webbdesign, utveckling och visuell identitet. Lär känna oss och se våra projekt.">
+  <meta name="theme-color" content="#f5f6f2">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d5ff5f'/%3E%3Cpath d='M7.2 8h28c12.8 0 21.6 8.8 21.6 21.6H32.8C18.4 29.6 7.2 20 7.2 8Zm49.6 48H28.8C16 56 7.2 47.2 7.2 34.4h24c14.4 0 25.6 9.6 25.6 21.6Z' fill='%23161916'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Hoppa till innehåll</a>
+<header class="header">
+  <a class="brand" href="#" aria-label="Digisoul Media, startsidan"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="assets/symbol.svg#symbol"/></svg><span class="brand-lockup"><span><b class="brand-initial">D</b>igisoul</span><span class="brand-descriptor">Media</span></span></a>
+  <nav aria-label="Huvudmeny" id="navigation"><a href="#projekt">Projekt</a><a href="#tjanster">Vad vi gör</a><a href="#studion">Studion</a><a class="nav-contact" href="#kontakt">Prata med oss <span class="contact-dot" aria-hidden="true"></span></a></nav>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="navigation">Meny <span aria-hidden="true">+</span></button>
+</header>
+<main id="main">
+<section class="hero section-pad" aria-labelledby="hero-title">
+  <div class="hero-eyebrow"><span>OBEROENDE WEBBSTUDIO</span><span>GÖTEBORG, SVERIGE</span></div>
+  <div class="hero-main"><h1 id="hero-title">Digitalt<br>hantverk.<br><span class="last-line">Med <em>själ.</em></span></h1><div class="hero-side"><div class="brand-sculpture" role="img" aria-label="Digisoul Media"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="assets/symbol.svg#symbol"/></svg><span class="hero-wordmark" aria-hidden="true"><span class="hero-brand-name"><b class="brand-initial">D</b>igisoul</span><span>Media</span></span><span class="sculpture-caption" aria-hidden="true">FORM + FUNKTION + KÄNSLA</span></div><p>Vi designar och bygger webbplatser som känns som er.<br>Och fungerar för era kunder.</p><a class="button button-dark" href="#projekt">Se våra projekt <span class="button-dot" aria-hidden="true"></span></a></div></div>
+  <div class="hero-bottom"><span>Webbdesign / Utveckling / Identitet</span><span>Scrolla och lär känna oss <span aria-hidden="true">↓</span></span></div>
+</section>
+<section class="work section-pad" id="projekt" aria-labelledby="work-title">
+  <div class="section-top"><span class="eyebrow">01 / UTVALDA PROJEKT</span><span class="eyebrow">FRÅN HANTVERK TILL DIGITALA TJÄNSTER</span></div>
+  <div class="section-heading"><h2 id="work-title">Olika företag.<br>Egna uttryck.</h2><p>En webbplats ska göra verksamheten rättvisa.<br>Här är några som vi har hjälpt på vägen.</p></div>
+  <div class="project-grid">
+    <button class="project project-wide" data-project="centrum" aria-label="Läs om projektet Centrum Lack"><div class="project-image centrum"><span class="project-tag">WEBBDESIGN & UTVECKLING</span><img src="assets/e52a9e355bd23cfc.png" alt="Centrum Lacks webbplats" width="1400" height="900"><span class="project-open">Utforska projektet <span aria-hidden="true">+</span></span></div><div class="project-caption"><h3>Centrum Lack</h3><span>Hantverk som får ta plats.</span><span class="project-number">01</span></div></button>
+    <button class="project" data-project="oak" aria-label="Läs om projektet Oak Design Door"><div class="project-image oak"><span class="project-tag">IDENTITET & WEBB</span><img src="assets/dac901f351ff6080.png" alt="Oak Design Doors webbplats" width="1400" height="900" loading="lazy"><span class="project-open">Utforska projektet <span aria-hidden="true">+</span></span></div><div class="project-caption"><h3>Oak Design Door</h3><span>Ett digitalt hem för gediget snickeri.</span><span class="project-number">02</span></div></button>
+    <button class="project" data-project="avtal" aria-label="Läs om projektet Avtalsväggen"><div class="project-image avtal"><span class="project-tag">DIGITAL PRODUKT & UX</span><img src="assets/c91adb2296bb35a3.png" alt="Avtalsväggen, digital tjänst för avtal" width="1400" height="900" loading="lazy"><span class="project-open">Utforska projektet <span aria-hidden="true">+</span></span></div><div class="project-caption"><h3>Avtalsväggen</h3><span>Från komplex idé till användbar tjänst.</span><span class="project-number">03</span></div></button>
+    <button class="project project-wide" data-project="edberg" aria-label="Läs om projektet Mr. Edberg Art"><div class="project-image edberg"><span class="project-tag">KONSTGALLERI & WEBBDESIGN · PÅGÅENDE</span><div class="edberg-brand"><img src="assets/edberg-logo.webp" alt="Mr. Edberg Art" width="720" height="300" loading="lazy"><span>GRAFFITI / POP / GATUKONST</span></div><img src="assets/edberg-art.jpg" alt="Konstverk av Mr. Edberg med en hund i solglasögon och färgstarka graffitidetaljer" width="800" height="1100" loading="lazy"><span class="project-open">Utforska projektet <span aria-hidden="true">+</span></span></div><div class="project-caption"><h3>Mr. Edberg Art</h3><span>Ett digitalt galleri där konsten tar plats.</span><span class="project-number">04</span></div></button>
+  </div>
+</section>
+<div class="ticker"><div aria-hidden="true">GENOMTÄNKT FRÅN FÖRSTA PIXELN. <span>HELA VÄGEN TILL SISTA KLICKET.</span> GENOMTÄNKT FRÅN FÖRSTA PIXELN. <span>HELA VÄGEN TILL SISTA KLICKET.</span></div><button class="motion-toggle" aria-label="Pausa animationer" title="Pausa animationer">Ⅱ</button></div>
+<section class="services section-pad" id="tjanster" aria-labelledby="services-title">
+  <div class="section-top"><span class="eyebrow">02 / VAD VI GÖR</span></div>
+  <div class="services-layout"><div class="services-intro"><h2 id="services-title">Bra form.<br>Rätt funktion.</h2><p>Från första skiss till färdig webbplats. Vi hjälper er att hitta ett uttryck och bygga det som behövs.</p><a class="text-link" href="#kontakt">Berätta om ert projekt</a></div><div class="service-list">
+    <details open><summary><span class="service-index">01</span><h3>Webbdesign & utveckling</h3><span class="plus" aria-hidden="true"></span></summary><div class="service-content"><p>En tydlig struktur, genomarbetad design och en snabb webbplats. Vi bygger för människorna som ska använda den, på mobil såväl som stor skärm.</p><div class="tags"><span>Webbdesign</span><span>Utveckling</span><span>Teknisk SEO</span></div></div></details>
+    <details><summary><span class="service-index">02</span><h3>Visuell identitet</h3><span class="plus" aria-hidden="true"></span></summary><div class="service-content"><p>Logotyp, färger och typografi som hänger ihop. Vi tar fram en visuell identitet som gör ert företag lätt att känna igen och enkel att arbeta vidare med.</p><div class="tags"><span>Logotyp</span><span>Grafisk profil</span><span>Art direction</span></div></div></details>
+    <details><summary><span class="service-index">03</span><h3>Digitala tjänster & rådgivning</h3><span class="plus" aria-hidden="true"></span></summary><div class="service-content"><p>När en vanlig webbplats inte räcker. Vi hjälper till med gränssnitt, integrationer och digitala arbetsflöden, och reder ut vad som är värt att bygga.</p><div class="tags"><span>UX/UI</span><span>Integrationer</span><span>Digital rådgivning</span></div></div></details>
+    <details><summary><span class="service-index">04</span><h3>Drift & vidareutveckling</h3><span class="plus" aria-hidden="true"></span></summary><div class="service-content"><p>En webbplats behöver tas om hand även efter lanseringen. Vi erbjuder drift, säkerhet och support som tillval, och hjälper er vidare när verksamheten förändras.</p><div class="tags"><span>Drift</span><span>Säkerhet</span><span>Support</span></div></div></details>
+  </div></div>
+</section>
+<section class="studio section-pad" id="studion" aria-labelledby="studio-title">
+  <div class="section-top"><span class="eyebrow">03 / MÄNNISKORNA BAKOM</span><span class="eyebrow">LITEN STUDIO. NÄRA SAMARBETE.</span></div>
+  <div class="studio-intro"><h2 id="studio-title">Ni pratar med oss.<br>Vi gör jobbet.</h2><div><p>Digisoul Media är en webbstudio i Göteborg. Här möter ni Mattias och Sara, från första samtalet till det som händer efter lanseringen.</p><p>Vi vill förstå vad ni gör, vilka ni vill nå och vad er webbplats behöver lösa. Sedan gör vi en plan tillsammans.</p></div></div>
+  <div class="people"><article class="person"><div class="portrait"><img src="assets/ac08aa7be63898b3.png" alt="Mattias, webbdesigner på Digisoul Media" width="800" height="1000" loading="lazy"></div><div class="person-info"><h3>Mattias</h3><p>Webbdesigner & digital konsult</p><a href="mailto:mattias@digisoul.se">mattias@digisoul.se</a><a href="tel:+46737255718">073-725 57 18</a></div></article><article class="person"><div class="portrait"><img src="assets/634efaa3d37b54bf.png" alt="Sara, kundansvarig på Digisoul Media" width="800" height="1000" loading="lazy"></div><div class="person-info"><h3>Sara</h3><p>Säljare & kundansvarig</p><a href="mailto:sara@digisoul.se">sara@digisoul.se</a><a href="tel:+46701484678">070-148 46 78</a></div></article></div>
+</section>
+<section class="pricing section-pad" id="priser" aria-labelledby="price-title"><div class="section-top"><span class="eyebrow">04 / INVESTERINGEN</span></div><div class="section-heading"><h2 id="price-title">En bra början.<br>Eller nästa steg.</h2><p>Tre utgångspunkter för olika behov.<br>Vi går igenom omfattningen innan vi börjar.</p></div><div class="price-grid"><article><span class="eyebrow">BAS</span><h3>3 999 <span>kr</span></h3><p>En mindre webbplats som gör det enkelt att hitta er och ta kontakt.</p><ul><li>1–3 sidor</li><li>Responsiv design</li><li>Kontaktformulär</li><li>Grundläggande SEO</li></ul><a href="#kontakt" class="text-link" data-package="Bas">Prata om Bas</a></article><article><span class="eyebrow">MELLAN</span><h3>9 900 <span>kr</span></h3><p>Mer utrymme för er verksamhet, med ett eget uttryck och fler sidor.</p><ul><li>5–8 sidor</li><li>Unik design</li><li>SEO-optimering</li><li>Google Analytics</li></ul><a href="#kontakt" class="text-link" data-package="Mellan">Prata om Mellan</a></article><article><span class="eyebrow">PREMIUM</span><h3>19 900 <span>kr+</span></h3><p>För större webbplatser med fler funktioner och integrationer.</p><ul><li>10+ sidor</li><li>Bokningssystem</li><li>Flerspråkig webbplats</li><li>Avancerade integrationer</li></ul><a href="#kontakt" class="text-link" data-package="Premium">Prata om Premium</a></article></div><p class="price-note">Drift, säkerhet och support finns som frivilligt tillval för 399 kr/mån. Under de första tre månaderna ingår en ändring per månad med tillvalet. Logodesign och Google Ads-uppsättning offereras separat.</p></section>
+<section class="contact section-pad" id="kontakt" aria-labelledby="contact-title"><div class="section-top"><span class="eyebrow">05 / NÄSTA KAPITEL</span><span class="eyebrow">DET BÖRJAR MED ETT SAMTAL</span></div><div class="contact-layout"><div><h2 id="contact-title">Vad vill ni<br>göra <em>nu?</em></h2><p>En ny webbplats, ett nytt uttryck eller en idé som behöver ta form. Vi lyssnar gärna.</p><a class="contact-email" href="mailto:info@digisoul.se">info@digisoul.se</a><a class="contact-phone" href="tel:+46737255718">073-725 57 18</a></div><form id="contact-form"><div class="form-trap" aria-hidden="true"><label>Lämna detta fält tomt<input name="website" tabindex="-1" autocomplete="off"></label></div><fieldset><legend>Vad behöver ni hjälp med?</legend><div class="choice-row"><label><input type="radio" name="service" value="Webbplats" checked><span>Webbplats</span></label><label><input type="radio" name="service" value="Identitet"><span>Identitet</span></label><label><input type="radio" name="service" value="Annat"><span>Annat</span></label></div></fieldset><div class="form-row"><label>Ert namn<input name="name" maxlength="120" autocomplete="name" required placeholder="För- och efternamn"></label><label>E-post<input type="email" name="email" maxlength="254" autocomplete="email" required placeholder="namn@foretag.se"></label></div><label>Berätta lite om projektet<textarea name="message" maxlength="5000" rows="3" required placeholder="Vad har ni i tankarna?"></textarea></label><button class="button button-dark" type="submit">Skicka förfrågan <span class="button-dot" aria-hidden="true"></span></button><p class="form-note" id="form-status" role="status">Din förfrågan skickas till info@digisoul.se.</p></form></div></section>
+</main>
+<footer class="footer section-pad"><div class="footer-top"><a class="brand" href="#" aria-label="Digisoul Media, till toppen"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="assets/symbol.svg#symbol"/></svg><span class="brand-lockup"><span><b class="brand-initial">D</b>igisoul</span><span class="brand-descriptor">Media</span></span></a><p>Digitalt hantverk. Med själ.</p><a href="#">Till toppen ↑</a></div><div class="footer-bottom"><span>© <span id="year">2026</span> Digisoul Media</span><span>Webbstudio i Göteborg</span><button class="motion-control" type="button" aria-pressed="false">Pausa rörelse</button></div></footer>
+<dialog id="project-dialog" aria-labelledby="dialog-title"><button class="dialog-close" type="button" aria-label="Stäng projekt">Stäng <span aria-hidden="true">×</span></button><div class="dialog-image"><img id="dialog-img" src="assets/e52a9e355bd23cfc.png" alt=""></div><div class="dialog-content"><span class="eyebrow" id="dialog-category"></span><h2 id="dialog-title"></h2><p id="dialog-description"></p><div class="tags" id="dialog-tags"></div><div class="dialog-actions"><a id="dialog-live" class="button button-dark" target="_blank" rel="noopener">Besök webbplatsen</a><a class="text-link" id="dialog-contact" href="#kontakt">Prata om ett liknande projekt</a></div></div></dialog>
+</body>
 </html>
