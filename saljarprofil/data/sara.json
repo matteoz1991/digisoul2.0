@@ -16,10 +16,10 @@
   ],
   "_presentation_not": "UTKAST, låt Sara godkänna eller skriva om texten.",
   "hjalper_till_med": [
-    {"rubrik": "Ny webbplats", "text": "Från en mindre sida som gör det enkelt att hitta er och ta kontakt, till större webbplatser med bokning och integrationer. Paket från 3 999 kr."},
-    {"rubrik": "Visuell identitet", "text": "Logotyp, färger och typografi som hänger ihop och gör ert företag lätt att känna igen."},
-    {"rubrik": "Digitala tjänster & rådgivning", "text": "När en vanlig webbplats inte räcker: gränssnitt, integrationer och digitala arbetsflöden."},
-    {"rubrik": "Drift & vidareutveckling", "text": "Drift, säkerhet och support som frivilligt tillval för 399 kr/mån."}
+    {"rubrik": "Bas · 3 999 kr", "text": "En mindre webbplats på 1–3 sidor med responsiv design, kontaktformulär och grundläggande SEO."},
+    {"rubrik": "Mellan · 9 900 kr", "text": "Mer utrymme för verksamheten med 5–8 sidor, unik design och SEO-optimering."},
+    {"rubrik": "Premium · från 19 900 kr", "text": "För större webbplatser med fler funktioner och integrationer. Vi går igenom omfattningen innan vi börjar."},
+    {"rubrik": "Drift · 399 kr/mån", "text": "Drift, säkerhet och support som frivilligt tillval."}
   ],
   "uppdrag": [
     {"namn": "Centrum Lack", "typ": "Digisoul-case", "beskrivning": "En webbplats för ett företag med över 35 års erfarenhet av fordonslackering. Webbutveckling, SEO och visuell utformning.", "url": "https://centrumlack.se/", "taggar": ["Webbutveckling", "SEO", "Branding"]}

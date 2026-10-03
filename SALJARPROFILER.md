@@ -40,7 +40,7 @@ cd saljarprofil
 python3 build.py
 ```
 
-Detta skapar/uppdaterar `dist/s/<slug>/index.html` och vCard-filen.
+Detta skapar/uppdaterar `dist/s/<slug>/index.html`, vCard-filen och gemensamma profilresurser. Mallen laddar startsidans `/styles.css` och profilens CSS/JS med absoluta sökvägar från `config.json`, så även den tryckta QR-adressen utan avslutande snedstreck fungerar.
 
 ### 4. Kopiera till public
 
@@ -57,7 +57,7 @@ Nu är profilen tillgänglig på `/s/<slug>` när sidan körs eller deployas.
 npm run dev
 ```
 
-Öppna `http://localhost:5173/s/<slug>/` i webbläsaren.
+Vites utvecklingsserver kan visa startsidan som fallback för profiladresser. För att kontrollera den faktiska byggda profilen, kör även `npm run build` och servera `dist` statiskt, till exempel med `python3 -m http.server 5174 --directory dist`. Öppna både `http://localhost:5174/s/<slug>` och adressen med avslutande snedstreck. Kontrollera CSS, JavaScript och vCard-länken.
 
 ### 6. Committa och pusha
 
@@ -136,5 +136,7 @@ public/s/                # Kopieras hit för deployment
 
 - Sidorna är **dolda** med `noindex` och ska inte länkas från huvudsajten
 - QR-koder på visitkort pekar på `/s/<slug>` — ändra inte slugen efter utskrift!
+- Bevara absoluta resurs- och vCard-länkar i mallen. Relativa länkar bryts på QR-adressen utan avslutande snedstreck.
+- Startsidan ändras inte av profilgeneratorn; profilerna använder dess befintliga typografi och grundstil via `/styles.css`.
 - Telefonnummer `[TELEFON]` gör att Ring-knappen blir inaktiv
 - Visa **inga** påhittade omdömen eller kunder

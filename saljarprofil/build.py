@@ -48,7 +48,8 @@ for jp in sorted(glob.glob(os.path.join(D,'data','*.json'))):
     else:
         k.append(f'<a class="button button-dark" href="{tel_href(p["telefon"])}">Ring {E(p["namn"])} <small>{E(p["telefon"])}</small></a>')
     k.append(f'<a class="button {"button-dark" if placeholder(p.get("telefon")) else "button-line"}" href="mailto:{E(p["epost"])}?subject={E("Hej "+p["namn"]+"!")}">Mejla <small>{E(p["epost"])}</small></a>')
-    k.append(f'<a class="button button-line" href="{E(p["id"])}.vcf" download>Spara kontakt <span class="button-dot" aria-hidden="true"></span></a>')
+    vcf_path=cfg['profil_sokvag'].rstrip('/')+'/'+p['slug']+'/'+p['id']+'.vcf'
+    k.append(f'<a class="button button-line" href="{E(vcf_path)}" download>Spara kontakt <span class="button-dot" aria-hidden="true"></span></a>')
     k.append('<a class="button button-lime" href="#lamna">Lämna ett omdöme <span class="button-dot" aria-hidden="true"></span></a>')
     hj=''.join(f'<li><h3>{E(h["rubrik"])}</h3><p>{E(h["text"])}</p></li>' for h in p['hjalper_till_med'])
     up=''
@@ -66,7 +67,7 @@ for jp in sorted(glob.glob(os.path.join(D,'data','*.json'))):
     else:
         omh=f'<div class="empty-reviews"><div class="rstars" aria-hidden="true">★★★★★</div><p>Inga omdömen ännu. Har du jobbat med {E(p["namn"])}? Bli först med att berätta hur det var.</p><a class="text-link" href="#lamna">Lämna ett omdöme</a></div>'
     t,action,fjson=form_cfg(p)
-    v={'NAMN':E(p['namn']),'TITEL':E(p['titel']),'TITEL_LITEN':E(p['titel'].lower()),'BAS_URL':E(bas.rstrip('/')),'SYMBOL':symbol,'FOTO':foto,
+    v={'NAMN':E(p['namn']),'TITEL':E(p['titel']),'TITEL_LITEN':E(p['titel'].lower()),'BAS_URL':E(bas.rstrip('/')),'ASSET_BASE':E(cfg['profil_sokvag'].rstrip('/')+'/_assets/'),'SYMBOL':symbol,'FOTO':foto,
        'PRESENTATION':pres,'KNAPPAR':''.join(k),'HJALP':hj,'UPPDRAG':up,'OMDOMEN':omh,'FORM_ACTION':E(action),'FORM_TYP':E(t),
        'ID':E(p['id']),'SLUG':E(p['slug']),'AR':str(datetime.date.today().year),'FORM_CONFIG_JSON':fjson}
     h=tpl
