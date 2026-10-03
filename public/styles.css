@@ -16,3 +16,4 @@
 
 /* Lime outline on the initial, matching the symbol. */
 .brand-initial{font:inherit;letter-spacing:inherit;-webkit-text-stroke:.055em #d5ff5f;paint-order:stroke fill}.hero-wordmark>.hero-brand-name{font:inherit;letter-spacing:inherit;text-transform:none;margin:0;padding:0}
+.form-note a{text-decoration:underline;text-underline-offset:3px;font-weight:600}

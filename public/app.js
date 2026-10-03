@@ -42,11 +42,19 @@ document.querySelector('#contact-form').addEventListener('submit', async e => {
   try {
     const response = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
     const result = await response.json();
+    if (response.status === 502 || response.status === 503) throw new TypeError('Mejltjänsten är inte tillgänglig.');
     if (!response.ok || !result.ok) throw new Error(result.message || 'Förfrågan kunde inte skickas. Mejla info@digisoul.se.');
     status.textContent = result.message;
     form.reset(); selectedPackage = '';
   } catch (error) {
-    status.textContent = error instanceof TypeError || error instanceof SyntaxError ? 'Vi kunde inte nå mejltjänsten. Texten finns kvar. Försök igen eller mejla info@digisoul.se.' : error.message;
+    if (error instanceof TypeError || error instanceof SyntaxError) {
+      const subject = encodeURIComponent(`Projektförfrågan: ${data.service}`);
+      const body = encodeURIComponent(`Namn: ${data.name}\nE-post: ${data.email}\nIntresse: ${data.service}\n\n${data.message}`);
+      const link = document.createElement('a');
+      link.href = `mailto:info@digisoul.se?subject=${subject}&body=${body}`;
+      link.textContent = 'Öppna e-postprogrammet med din förfrågan';
+      status.replaceChildren('Direktutskick är inte tillgängligt just nu. ', link, '. Skicka mejlet därifrån.');
+    } else status.textContent = error.message;
   } finally {
     button.disabled = false;
     button.textContent = 'Skicka förfrågan';
