@@ -1,6 +1,6 @@
 # Digisoul Media
 
-Den nya webbplatsen för Digisoul Media. Startsidan byggs av Vite från `index.html` och statiska resurser i `public/`. Befintliga kundprojekt under `public/projects/` finns kvar.
+Den nya webbplatsen för Digisoul Media. Startsidan och projektkatalogen byggs av Vite från `index.html` och statiska resurser i `public/`.
 
 ## Lokalt
 
