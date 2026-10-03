@@ -23,7 +23,7 @@
   ],
   "uppdrag": [
     {"namn": "Centrum Lack", "typ": "Digisoul-case", "beskrivning": "En webbplats för ett företag med över 35 års erfarenhet av fordonslackering. Webbutveckling, SEO och visuell utformning.", "url": "https://centrumlack.se/", "taggar": ["Webbutveckling", "SEO", "Branding"]},
-    {"namn": "Mr. Edberg Art", "typ": "Pågående uppdrag", "beskrivning": "Sara har bland annat hjälpt till med fotografering för Mr. Edberg Art.", "adress": "edbergart.se", "taggar": ["Fotografering"]}
+    {"namn": "Mr. Edberg Art", "typ": "Pågående uppdrag", "beskrivning": "Sara har hjälpt till med fotografering och kommer att ansvara för sociala medier för Mr. Edberg Art.", "adress": "edbergart.se", "taggar": ["Fotografering", "Sociala medier"]}
   ],
   "uppdrag_platshallare": 1,
   "omdomen": [],
