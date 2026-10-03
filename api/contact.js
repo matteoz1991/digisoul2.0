@@ -6,7 +6,7 @@ export default function handler(req, res) {
   if (process.env.SITE_ORIGIN) origins.push(process.env.SITE_ORIGIN);
   return createContactHandler({
     mailer: createMailer(),
-    from: process.env.MAIL_FROM,
+    from: process.env.MAIL_FROM || 'info@digisoul.se',
     origins,
     getClientIp: request => request.headers['x-vercel-forwarded-for']?.split(',')[0]?.trim(),
   })(req, res);

@@ -1,10 +1,10 @@
 import nodemailer from 'nodemailer';
 
 export function createMailer(env = process.env) {
-  if (!env.SMTP_HOST || !env.SMTP_USER || !env.SMTP_PASS || !env.MAIL_FROM) return null;
-  const port = Number(env.SMTP_PORT || 587);
+  if (!env.SMTP_USER || !env.SMTP_PASS) return null;
+  const port = Number(env.SMTP_PORT || 465);
   return nodemailer.createTransport({
-    host: env.SMTP_HOST, port, secure: port === 465, requireTLS: port !== 465,
+    host: env.SMTP_HOST || 'smtp.strato.de', port, secure: port === 465, requireTLS: port !== 465,
     auth: { user: env.SMTP_USER, pass: env.SMTP_PASS },
     connectionTimeout: 10000, greetingTimeout: 10000, socketTimeout: 20000,
     disableFileAccess: true, disableUrlAccess: true,
