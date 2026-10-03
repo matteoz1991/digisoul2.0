@@ -1,0 +1,30 @@
+{
+  "_kommentar": "En fil per säljare. Kopiera _mall.json, fyll i och kör python3 build.py. 'slug' är den dolda delen av adressen och ska matcha QR-koden på visitkortet.",
+  "id": "sara",
+  "slug": "sara-jecm69",
+  "bas_url": "https://www.digisoul.se",
+  "namn": "Sara",
+  "titel": "Säljare & kundansvarig",
+  "_titel_kalla": "digisoul.se, teamsektionen",
+  "foto": null,
+  "foto_alt": "Porträtt av Sara, Digisoul Media",
+  "telefon": "073-338 08 10",
+  "epost": "sara@digisoul.se",
+  "presentation": [
+    "Hej! Jag heter Sara och är säljare och kundansvarig på Digisoul Media, en oberoende webbstudio i Göteborg.",
+    "Jag är din kontakt när du funderar på en ny webbplats eller vill ta nästa steg med den du har. Vi börjar med ett samtal om vad du vill uppnå, och går igenom omfattningen innan vi börjar."
+  ],
+  "_presentation_not": "UTKAST, låt Sara godkänna eller skriva om texten.",
+  "hjalper_till_med": [
+    {"rubrik": "Ny webbplats", "text": "Från en mindre sida som gör det enkelt att hitta er och ta kontakt, till större webbplatser med bokning och integrationer. Paket från 3 999 kr."},
+    {"rubrik": "Visuell identitet", "text": "Logotyp, färger och typografi som hänger ihop och gör ert företag lätt att känna igen."},
+    {"rubrik": "Digitala tjänster & rådgivning", "text": "När en vanlig webbplats inte räcker: gränssnitt, integrationer och digitala arbetsflöden."},
+    {"rubrik": "Drift & vidareutveckling", "text": "Drift, säkerhet och support som frivilligt tillval för 399 kr/mån."}
+  ],
+  "uppdrag": [
+    {"namn": "Centrum Lack", "typ": "Digisoul-case", "beskrivning": "En webbplats för ett företag med över 35 års erfarenhet av fordonslackering. Webbutveckling, SEO och visuell utformning.", "url": "https://centrumlack.se/", "taggar": ["Webbutveckling", "SEO", "Branding"]}
+  ],
+  "uppdrag_platshallare": 2,
+  "omdomen": [],
+  "_omdomen_not": "Endast verkliga, godkända omdömen. Format: {\"namn\": \"...\", \"foretag\": \"...\", \"betyg\": 5, \"text\": \"...\", \"datum\": \"2026-10-03\"}"
+}

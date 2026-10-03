@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#f5f6f2">
+<title>{{NAMN}} · {{TITEL}} · Digisoul Media</title>
+<meta name="description" content="{{NAMN}}, {{TITEL_LITEN}} på Digisoul Media, webbstudio i Göteborg.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d5ff5f'/%3E%3Cpath d='M7.2 8h28c12.8 0 21.6 8.8 21.6 21.6H32.8C18.4 29.6 7.2 20 7.2 8Zm49.6 48H28.8C16 56 7.2 47.2 7.2 34.4h24c14.4 0 25.6 9.6 25.6 21.6Z' fill='%23161916'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../_assets/profil.css">
+</head>
+<body>
+<a class="skip" href="#innehall">Hoppa till innehållet</a>
+<header class="header">
+  <a class="brand" href="{{BAS_URL}}/" aria-label="Digisoul Media, till startsidan">{{SYMBOL}}<span class="brand-lockup"><span><b class="brand-initial">D</b>igisoul</span><span class="brand-descriptor">Media</span></span></a>
+  <a class="nav-contact" href="#kontakt">Kontakt <span class="contact-dot" aria-hidden="true"></span></a>
+</header>
+
+<main id="innehall">
+<section class="intro pad">
+  <div class="eyebrow-row"><span class="eyebrow">DIGISOUL MEDIA</span><span class="eyebrow">GÖTEBORG</span></div>
+  <div class="intro-grid">
+    <div class="portrait">{{FOTO}}</div>
+    <div class="intro-text">
+      <p class="role">{{TITEL}}</p>
+      <h1>Hej, jag är <em>{{NAMN}}.</em></h1>
+      <div class="presentation">{{PRESENTATION}}</div>
+      <div class="actions" id="kontakt">{{KNAPPAR}}</div>
+    </div>
+  </div>
+</section>
+
+<section class="help pad" aria-labelledby="hjalp">
+  <div class="section-top"><span class="eyebrow">01 · VAD JAG HJÄLPER TILL MED</span></div>
+  <h2 id="hjalp">Det här kan vi <em>göra tillsammans.</em></h2>
+  <ol class="help-list">{{HJALP}}</ol>
+</section>
+
+<section class="work pad" aria-labelledby="uppdrag">
+  <div class="section-top"><span class="eyebrow">02 · UPPDRAG & KUNDER</span></div>
+  <h2 id="uppdrag">Uppdrag och <em>kunder.</em></h2>
+  <div class="work-grid">{{UPPDRAG}}</div>
+</section>
+
+<section class="reviews pad" aria-labelledby="omdomen">
+  <div class="section-top"><span class="eyebrow">03 · OMDÖMEN</span></div>
+  <h2 id="omdomen">Vad kunderna <em>säger.</em></h2>
+  {{OMDOMEN}}
+</section>
+
+<section class="review-form pad" aria-labelledby="lamna">
+  <div class="section-top"><span class="eyebrow">04 · LÄMNA ETT OMDÖME</span></div>
+  <h2 id="lamna">Har vi jobbat <em>ihop?</em></h2>
+  <p class="lede">Berätta gärna hur det var. Omdömen läses och godkänns innan de visas på sidan.</p>
+  <form id="omdome-form" class="form" method="post" action="{{FORM_ACTION}}" data-typ="{{FORM_TYP}}" novalidate>
+    <input type="hidden" name="saljare" value="{{ID}}">
+    <input type="hidden" name="profil" value="{{SLUG}}">
+    <input type="hidden" name="_subject" value="Nytt omdöme för {{NAMN}} (Digisoul Media)">
+    <div class="hp" aria-hidden="true"><label>Lämna tomt <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+    <fieldset class="stars">
+      <legend>Betyg <span class="req">*</span></legend>
+      <div class="star-row">
+        <input type="radio" id="b5" name="betyg" value="5" required><label for="b5" title="5 av 5">★<span class="sr">5 av 5</span></label>
+        <input type="radio" id="b4" name="betyg" value="4"><label for="b4" title="4 av 5">★<span class="sr">4 av 5</span></label>
+        <input type="radio" id="b3" name="betyg" value="3"><label for="b3" title="3 av 5">★<span class="sr">3 av 5</span></label>
+        <input type="radio" id="b2" name="betyg" value="2"><label for="b2" title="2 av 5">★<span class="sr">2 av 5</span></label>
+        <input type="radio" id="b1" name="betyg" value="1"><label for="b1" title="1 av 5">★<span class="sr">1 av 5</span></label>
+      </div>
+    </fieldset>
+    <label class="field"><span>Namn <span class="req">*</span></span><input type="text" name="namn" autocomplete="name" required maxlength="80"></label>
+    <label class="field"><span>Företag</span><input type="text" name="foretag" autocomplete="organization" maxlength="120"></label>
+    <label class="field"><span>Ditt omdöme <span class="req">*</span></span><textarea name="text" rows="5" required maxlength="1200"></textarea></label>
+    <label class="check"><input type="checkbox" name="samtycke" value="ja" required><span>Jag godkänner att mitt omdöme, namn och företag får visas på den här sidan. <span class="req">*</span></span></label>
+    <button class="button button-dark" type="submit">Skicka omdöme <span class="button-dot" aria-hidden="true"></span></button>
+    <p class="form-status" role="status" aria-live="polite"></p>
+  </form>
+</section>
+</main>
+
+<footer class="footer pad">
+  <div class="footer-brand">{{SYMBOL}}<span>Digitalt hantverk. <em>Med själ.</em></span></div>
+  <div class="footer-meta"><a href="{{BAS_URL}}/">digisoul.se</a><span>© {{AR}} Digisoul Media · Webbstudio i Göteborg</span></div>
+</footer>
+<script>window.OMDOME_CONFIG={{FORM_CONFIG_JSON}};</script>
+<script src="../_assets/profil.js" defer></script>
+</body>
+</html>
