@@ -1,0 +1,16 @@
+{
+  "_kommentar": "Gemensamma inställningar för alla säljarprofiler. Byt omdome_formular.typ när en mottagare finns.",
+  "bas_url": "https://www.digisoul.se",
+  "profil_sokvag": "/s/",
+  "omdome_formular": {
+    "_typer": "ingen | formspree | supabase | google_forms | post",
+    "typ": "ingen",
+    "formspree_endpoint": "https://formspree.io/f/DITT_FORMULAR_ID",
+    "supabase_url": "https://DITT-PROJEKT.supabase.co",
+    "supabase_anon_key": "PUBLIK_ANON_NYCKEL",
+    "supabase_tabell": "omdomen",
+    "google_forms_action": "https://docs.google.com/forms/d/e/FORMULAR_ID/formResponse",
+    "google_forms_falt": {"betyg": "entry.111", "namn": "entry.222", "foretag": "entry.333", "text": "entry.444", "saljare": "entry.555"},
+    "post_endpoint": ""
+  }
+}

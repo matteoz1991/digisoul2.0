@@ -1,0 +1,38 @@
+{
+  "_kommentar": "Mall för ny säljare. Spara som data/<id>.json. Skapa slug med: python3 build.py --ny-slug <id>",
+  "id": "fornamn",
+  "slug": "fornamn-xxxxxx",
+  "bas_url": "https://www.digisoul.se",
+  "namn": "",
+  "titel": "",
+  "foto": null,
+  "foto_alt": "",
+  "telefon": "[TELEFON]",
+  "epost": "",
+  "presentation": [
+    "Kort presentation, stycke 1.",
+    "Stycke 2 (valfritt)."
+  ],
+  "hjalper_till_med": [
+    {
+      "rubrik": "Ny webbplats",
+      "text": "Från en mindre sida som gör det enkelt att hitta er och ta kontakt, till större webbplatser med bokning och integrationer. Paket från 3 999 kr."
+    },
+    {
+      "rubrik": "Visuell identitet",
+      "text": "Logotyp, färger och typografi som hänger ihop och gör ert företag lätt att känna igen."
+    },
+    {
+      "rubrik": "Digitala tjänster & rådgivning",
+      "text": "När en vanlig webbplats inte räcker: gränssnitt, integrationer och digitala arbetsflöden."
+    },
+    {
+      "rubrik": "Drift & vidareutveckling",
+      "text": "Drift, säkerhet och support som frivilligt tillval för 399 kr/mån."
+    }
+  ],
+  "uppdrag": [],
+  "uppdrag_platshallare": 3,
+  "omdomen": [],
+  "_omdomen_not": ""
+}
