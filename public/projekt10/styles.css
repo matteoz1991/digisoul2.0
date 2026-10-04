@@ -49,3 +49,5 @@ nav a{font-size:17px;font-style:italic;color:var(--blue)}
  .ticker>i{display:none}
  .ticker>i:first-of-type{display:block;flex:0 0 auto;font-size:14px;line-height:1}
 }
+
+@media(max-width:600px){body{padding-bottom:0}}
