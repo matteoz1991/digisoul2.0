@@ -45,19 +45,3 @@ const navToggle=document.querySelector('#nav-toggle');function closeNav(){docume
 function showPhoto(){const p=photos[photoIndex];dialog.querySelector('img').src=`assets/${p.file}.jpg`;dialog.querySelector('img').alt=p[lang];dialog.querySelector('p').textContent=p[lang];document.querySelector('#photo-count').textContent=`${photoIndex+1} / ${photos.length}`}
 document.querySelector('.gallery-grid').addEventListener('click',e=>{const b=e.target.closest('[data-photo]');if(!b)return;photoIndex=Number(b.dataset.photo);showPhoto();dialog.showModal();document.body.style.overflow='hidden'});document.querySelector('#close-lightbox').addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>document.body.style.overflow='');dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close()}});function movePhoto(n){photoIndex=(photoIndex+n+photos.length)%photos.length;showPhoto()}document.querySelector('#prev-photo').addEventListener('click',()=>movePhoto(-1));document.querySelector('#next-photo').addEventListener('click',()=>movePhoto(1));dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')movePhoto(-1);if(e.key==='ArrowRight')movePhoto(1)});
 document.querySelectorAll('.maps-link').forEach(a=>a.href='https://www.google.com/maps/dir/?api=1&destination=El+Marinero+Marina+Internacional+Torrevieja');document.querySelectorAll('.listing-link').forEach(a=>a.href='https://www.google.com/maps/search/?api=1&query=El+Marinero+Marina+Internacional+Torrevieja');document.querySelector('#year').textContent=new Date().getFullYear();window.addEventListener('scroll',()=>document.querySelector('header').classList.toggle('scrolled',scrollY>20),{passive:true});setLanguage();
-
-// Create the external document only when the visitor reaches the map.
-// The local photo, retry control and external Maps link remain usable if Google fails.
-const mapHost=document.querySelector('#map-frame');
-let mapTimer;
-function loadMap(){
- clearTimeout(mapTimer);mapHost.replaceChildren();
- const frame=document.createElement('iframe');frame.title=languageUI[lang].map;
- frame.referrerPolicy='no-referrer-when-downgrade';
- frame.src='https://www.google.com/maps/embed?pb=!1m11!1m8!1m3!1d6290.3727044601183!2d-0.688056!3d37.972778!3m2!1i1024!2i768!4f13.1!5e0!6i16';
- frame.addEventListener('load',()=>{clearTimeout(mapTimer);frame.classList.add('ready')},{once:true});
- frame.addEventListener('error',()=>{clearTimeout(mapTimer);frame.remove()},{once:true});
- mapHost.append(frame);mapTimer=setTimeout(()=>frame.remove(),15000);
-}
-document.querySelector('#load-map').addEventListener('click',loadMap);
-if('IntersectionObserver' in window){const mapObserver=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){loadMap();mapObserver.disconnect()}},{rootMargin:'250px'});mapObserver.observe(mapHost)}else{loadMap()}
