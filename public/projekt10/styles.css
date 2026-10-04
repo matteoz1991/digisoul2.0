@@ -29,3 +29,6 @@ nav a{font-size:17px;font-style:italic;color:var(--blue)}
 .map-wrap>iframe{display:block;flex:1 1 0;min-height:0;width:100%;height:auto;border:0;opacity:1}
 .map-wrap>.map-caption{position:static;display:block;flex:0 0 auto;margin:0;padding:18px 22px;background:var(--paper);box-shadow:none;border-top:1px solid var(--line)}
 @media(max-width:600px){.map-wrap{height:440px;min-height:0}.map-wrap>iframe{min-height:0}}
+
+/* Gentle grade on the untouched customer photograph. */
+.hero-image>img{filter:brightness(1.06) contrast(1.06) saturate(1.12)}
