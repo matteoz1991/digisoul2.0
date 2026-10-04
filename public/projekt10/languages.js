@@ -1,0 +1,19 @@
+const extraMenus={
+sv:[
+['Hemlagat & tapas','En god anledning att stanna.','Hemlagad mat till bra priser, att njuta av i lugn och ro. Menyn kommer att växa: fråga vilka rätter och tapas som finns idag.',['Att dela på','Medelhavssmaker','Fråga i baren']],
+['Enkel frukost','Börja dagen vid hamnen.','En enkel frukost till bra pris innan du ger dig ut med båten eller upptäcker Torrevieja. Fråga i baren vad som finns och börja dagen i lugn och ro.',['Ta en paus','Vid hamnen']],
+['Drycker','Skål för att vara här.','En kall dryck på terrassen eller en kaffe i baren. Välj din stund och fråga om vårt dryckesutbud.',['Kaffe','Kalla drycker','På terrassen']],
+['Avhämtning','Goda smaker, var du vill.','Ta med något gott för resten av dagen i hamnen. Fråga på plats om våra alternativ för avhämtning inför ditt nästa äventyr.',['Till promenaden','Till båten','Fråga på plats']]
+],
+fi:[
+['Kotiruoka & tapakset','Hyvä syy viipyä hetki.','Kotiruokaa edullisesti, rauhassa nautittavaksi. Ruokalistamme kasvaa: kysy tänään saatavilla olevista annoksista ja tapaksista.',['Yhdessä jaettavaksi','Välimeren makuja','Kysy baarista']],
+['Yksinkertainen aamiainen','Aloita päivä sataman äärellä.','Yksinkertainen aamiainen edullisesti ennen veneilyä tai Torreviejaan tutustumista. Kysy baarista päivän vaihtoehdoista ja aloita päivä rauhassa.',['Pidä tauko','Sataman äärellä']],
+['Juomat','Malja tälle hetkelle.','Kylmä juoma terassilla tai kahvi baarissa. Valitse oma hetkesi ja kysy juomavalikoimastamme.',['Kahvi','Kylmät juomat','Terassilla']],
+['Mukaan','Hyviä makuja, minne menetkin.','Ota mukaan jotain hyvää loppupäiväksi satamassa. Kysy paikan päällä mukaan otettavista vaihtoehdoista ennen seuraavaa seikkailuasi.',['Kävelylle','Veneelle','Kysy paikan päällä']]
+]};
+const languageUI={
+en:{title:'Tapas & Mediterranean life in Torrevieja',welcome:'WELCOME TO',favourite:'your next favourite place.',visit:'SEE YOU IN TORREVIEJA',open:'Open photo',close:'Close photo',prev:'Previous photo',next:'Next photo',language:'Language',nav:'Main navigation',menu:'Open menu',categories:'Menu categories',skip:'Skip to content',map:'Marina Internacional, Torrevieja — harbour map',tagline:'TAPAS · BAR · SHOP',photos:['Welcome to El Marinero','Our bar','A moment on the terrace','Harbour life','A nautical soul']},
+es:{title:'Tapas y vida mediterránea en Torrevieja',welcome:'BIENVENIDOS A',favourite:'tu próximo lugar favorito.',visit:'NOS VEMOS EN TORREVIEJA',open:'Abrir foto',close:'Cerrar foto',prev:'Foto anterior',next:'Foto siguiente',language:'Idioma',nav:'Navegación principal',menu:'Abrir menú',categories:'Categorías de la carta',skip:'Ir al contenido',map:'Marina Internacional, Torrevieja — mapa del puerto',tagline:'TAPAS · BAR · TIENDA',photos:['Bienvenidos a El Marinero','Nuestra barra','Un ratito en la terraza','La vida en el puerto','Alma marinera']},
+sv:{title:'Tapas och medelhavsliv i Torrevieja',welcome:'VÄLKOMMEN TILL',favourite:'din nästa favoritplats.',visit:'VI SES I TORREVIEJA',open:'Öppna bild',close:'Stäng bild',prev:'Föregående bild',next:'Nästa bild',language:'Språk',nav:'Huvudmeny',menu:'Öppna menyn',categories:'Menykategorier',skip:'Hoppa till innehållet',map:'Marina Internacional, Torrevieja — hamnkarta',tagline:'TAPAS · BAR · BUTIK',photos:['Välkommen till El Marinero','Vår bar','En stund på terrassen','Livet i hamnen','Sjömanssjäl']},
+fi:{title:'Tapaksia ja Välimeren elämää Torreviejassa',welcome:'TERVETULOA',favourite:'seuraavaan suosikkipaikkaasi.',visit:'NÄHDÄÄN TORREVIEJASSA',open:'Avaa kuva',close:'Sulje kuva',prev:'Edellinen kuva',next:'Seuraava kuva',language:'Kieli',nav:'Päävalikko',menu:'Avaa valikko',categories:'Ruokalistan kategoriat',skip:'Siirry sisältöön',map:'Marina Internacional, Torrevieja — satamakartta',tagline:'TAPAKSET · BAARI · KAUPPA',photos:['Tervetuloa El Marineroon','Baarimme','Hetki terassilla','Sataman elämää','Merellinen sielu']}
+};
