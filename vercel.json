@@ -21,12 +21,26 @@
           "value": "noindex, nofollow, noarchive"
         }
       ]
+    },
+    {
+      "source": "/projekt09/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
     }
   ],
   "redirects": [
     {
       "source": "/projekt10",
       "destination": "/projekt10/",
+      "permanent": false
+    },
+    {
+      "source": "/projekt09",
+      "destination": "/projekt09/",
       "permanent": false
     }
   ]

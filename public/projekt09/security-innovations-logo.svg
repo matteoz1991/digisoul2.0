@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 380" role="img" aria-labelledby="title desc">
+<title id="title">Security Innovations Sweden</title>
+<desc id="desc">Blå och orange sköld med bokstäverna SIS och företagets namn.</desc>
+<path d="M57 13 Q105 23 170 14 Q232 24 284 13 C312 48 329 99 329 163 C329 263 268 337 170 371 C72 337 11 263 11 163 C11 99 28 48 57 13Z" fill="#079fdf"/>
+<path d="M62 34 Q104 46 170 35 Q236 46 278 34 C300 68 312 110 312 162 C312 251 257 319 170 349 C83 319 28 251 28 162 C28 110 40 68 62 34Z" fill="#f8f8e8"/>
+<path d="M68 42 Q109 53 170 43 Q231 53 272 42 C291 73 304 115 304 161 C304 244 252 310 170 339 C88 310 36 244 36 161 C36 115 49 73 68 42Z" fill="#eba243"/>
+<text x="170" y="211" text-anchor="middle" fill="#f7f7e9" font-family="Arial Rounded MT Bold,Arial,sans-serif" font-size="170" font-weight="900" letter-spacing="-20" textLength="245" lengthAdjust="spacingAndGlyphs">SIS</text>
+<path d="M67 231 Q170 241 273 231" fill="none" stroke="#f7f7e9" stroke-width="4" stroke-linecap="round"/>
+<g fill="#f7f7e9" font-family="Arial,sans-serif" font-size="23" font-weight="800" text-anchor="middle">
+<text x="170" y="266">SECURITY</text>
+<text x="170" y="291">INNOVATIONS</text>
+<text x="170" y="316">SWEDEN</text>
+</g>
+</svg>
