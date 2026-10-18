@@ -70,7 +70,7 @@ for jp in sorted(glob.glob(os.path.join(D,'data','*.json'))):
     else:
         omh=f'<div class="empty-reviews"><div class="rstars" aria-hidden="true">★★★★★</div><p>Inga omdömen ännu. Har du jobbat med {E(p["namn"])}? Bli först med att berätta hur det var.</p><a class="text-link" href="#lamna">Lämna ett omdöme</a></div>'
     t,action,fjson=form_cfg(p)
-    v={'NAMN':E(p['namn']),'TITEL':E(p['titel']),'TITEL_LITEN':E(p['titel'].lower()),'BAS_URL':E(bas.rstrip('/')),'ASSET_BASE':E(cfg['profil_sokvag'].rstrip('/')+'/_assets/'),'SYMBOL':symbol,'FOTO':foto,
+    v={'NAMN':E(p['namn']),'EPOST':E(p['epost']),'TITEL':E(p['titel']),'TITEL_LITEN':E(p['titel'].lower()),'BAS_URL':E(bas.rstrip('/')),'ASSET_BASE':E(cfg['profil_sokvag'].rstrip('/')+'/_assets/'),'SYMBOL':symbol,'FOTO':foto,
        'PRESENTATION':pres,'KNAPPAR':''.join(k),'HJALP':hj,'UPPDRAG':up,'OMDOMEN':omh,'FORM_ACTION':E(action),'FORM_TYP':E(t),
        'ID':E(p['id']),'SLUG':E(p['slug']),'AR':str(datetime.date.today().year),'FORM_CONFIG_JSON':fjson}
     h=tpl

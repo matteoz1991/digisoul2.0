@@ -7,7 +7,7 @@
   function say(msg,cls){status.textContent=msg;status.className='form-status '+(cls||'');}
   function offerEmail(d){
     var body='Omdöme för '+d.saljare+'\n\nBetyg: '+d.betyg+' av 5\nNamn: '+d.namn+'\nFöretag: '+(d.foretag||'Ej angivet')+'\n\n'+d.text+'\n\nJag godkänner att mitt omdöme, namn och företag får visas på profilsidan.';
-    fallback.href='mailto:info@digisoul.se?subject='+encodeURIComponent('Omdöme för '+d.saljare)+'&body='+encodeURIComponent(body);
+    fallback.href='mailto:'+(cfg.fallback_epost||'info@digisoul.se')+'?subject='+encodeURIComponent('Omdöme för '+d.saljare)+'&body='+encodeURIComponent(body);
     fallback.hidden=false;
   }
   function data(){var f=new FormData(form);return{

@@ -1,4 +1,4 @@
-const recipient = 'info@digisoul.se';
+const recipients = Object.freeze({ sara: 'sara@digisoul.se' });
 
 export function createReviewHandler({ mailer, from, origins, getClientIp }) {
   const requests = new Map();
@@ -38,7 +38,9 @@ export function createReviewHandler({ mailer, from, origins, getClientIp }) {
       || typeof saljare !== 'string' || !/^[a-z0-9-]{2,40}$/.test(saljare)
       || typeof profil !== 'string' || !/^[a-z0-9-]{2,60}$/.test(profil) || !profil.startsWith(saljare + '-'))
       return reply(res, 400, 'Kontrollera betyg, namn, omdöme och samtycke.');
-    if (!mailer || !from) return reply(res, 503, 'Formuläret är inte anslutet ännu. Mejla info@digisoul.se i stället.');
+    const recipient = recipients[saljare];
+    if (!recipient) return reply(res, 400, 'Okänd säljarprofil.');
+    if (!mailer || !from) return reply(res, 503, `Formuläret är inte anslutet ännu. Mejla ${recipient} i stället.`);
     try {
       const result = await mailer.sendMail({
         from, to: recipient,
@@ -47,6 +49,6 @@ export function createReviewHandler({ mailer, from, origins, getClientIp }) {
       });
       if (!result.accepted?.some(address => String(address).toLowerCase() === recipient)) throw new Error('Recipient rejected');
       return reply(res, 200, 'Tack! Ditt omdöme har skickats för granskning.');
-    } catch { return reply(res, 502, 'Mejltjänsten kunde inte bekräfta utskicket. Försök senare eller mejla info@digisoul.se.'); }
+    } catch { return reply(res, 502, `Mejltjänsten kunde inte bekräfta utskicket. Försök senare eller mejla ${recipient}.`); }
   };
 }

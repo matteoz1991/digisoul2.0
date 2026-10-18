@@ -11,12 +11,12 @@ async function withHandler(mailer, run) {
   try { await run(send); } finally { server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); }
 }
 
-test('mejlar omdömet enbart till info efter SMTP-bekräftelse', async () => {
+test('mejlar Saras omdöme enbart till Sara efter SMTP-bekräftelse', async () => {
   let sent;
-  await withHandler({ sendMail: async mail => { sent = mail; return { accepted: ['info@digisoul.se'] }; } }, async send => {
+  await withHandler({ sendMail: async mail => { sent = mail; return { accepted: ['sara@digisoul.se'] }; } }, async send => {
     const result = await send({ ...payload, to: 'other@example.com' });
     assert.equal(result.status, 200);
-    assert.equal(sent.to, 'info@digisoul.se');
+    assert.equal(sent.to, 'sara@digisoul.se');
     assert.match(sent.text, /Sara|sara/);
     assert.match(sent.text, /5 av 5/);
     assert.match(sent.text, /Granska och godkänn/);
@@ -29,7 +29,7 @@ test('nekar otillåten avsändare, bot, saknat samtycke och ogiltiga fält', asy
   await withHandler(mailer, async send => assert.equal((await send(payload, 'https://other.example')).status, 403));
   for (const invalid of [
     { betyg: 6 }, { namn: 'Test\r\nBcc: other@example.com' }, { text: '' },
-    { samtycke: false }, { profil: 'other-jecm69' }, { gotcha: 'spam' },
+    { samtycke: false }, { profil: 'other-jecm69' }, { saljare: 'anna', profil: 'anna-example' }, { gotcha: 'spam' },
   ]) await withHandler(mailer, async send => assert.equal((await send({ ...payload, ...invalid })).status, 400));
   assert.equal(calls, 0);
 });

@@ -77,7 +77,7 @@ git push
 
 ## Omdömesformulär
 
-Formuläret skickar omdömen via `/api/review` och befintlig STRATO-SMTP till `info@digisoul.se`. Vercel behöver `SMTP_USER` och `SMTP_PASS` (samma variabler som startsidans kontaktformulär). Ett omdöme mejlas för granskning och publiceras inte automatiskt.
+Formuläret skickar omdömen via `/api/review` och befintlig STRATO-SMTP till säljarens e-postadress (Sara: `sara@digisoul.se`). Startsidan skickar förfrågningar till `info@digisoul.se`. Vercel behöver `SMTP_USER` och `SMTP_PASS` för båda formulären. Ett omdöme mejlas för granskning och publiceras inte automatiskt. Lägg till nya säljares mottagaradresser i `review.mjs` när deras profiler aktiveras.
 
 För en annan mottagare kan `saljarprofil/config.json` ändras, exempelvis till Formspree:
 
@@ -91,7 +91,7 @@ För en annan mottagare kan `saljarprofil/config.json` ändras, exempelvis till 
    ```
 3. Bygg om profilerna enligt steg 3-6 ovan
 
-Vid SMTP-fel får besökaren en knapp som öppnar ett färdigifyllt mejl till `info@digisoul.se` i det egna e-postprogrammet. Den vägen kräver att besökaren själv skickar mejlet.
+Vid SMTP-fel får besökaren en knapp som öppnar ett färdigifyllt mejl till säljarens e-postadress i det egna e-postprogrammet. Den vägen kräver att besökaren själv skickar mejlet.
 
 ## Publicerade omdömen
 
