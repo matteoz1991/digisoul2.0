@@ -22,7 +22,8 @@ def tel_href(t): return 'tel:'+''.join(c for c in t if c.isdigit() or c=='+').re
 
 def form_cfg(p):
     f=cfg['omdome_formular']; t=f.get('typ','ingen'); c={'typ':t,'fallback_epost':p['epost']}
-    if t=='formspree': c['endpoint']=f['formspree_endpoint']
+    if t=='digisoul': c['endpoint']=f['digisoul_endpoint']
+    elif t=='formspree': c['endpoint']=f['formspree_endpoint']
     elif t=='post': c['endpoint']=f['post_endpoint']
     elif t=='supabase': c.update(url=f['supabase_url'],anon_key=f['supabase_anon_key'],tabell=f['supabase_tabell'])
     elif t=='google_forms': c.update(action=f['google_forms_action'],falt=f['google_forms_falt'])

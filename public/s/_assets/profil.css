@@ -93,24 +93,26 @@ h2 em:before{content:'';position:absolute;z-index:-1;inset:10% -3% 0;background:
 
 /* formulär */
 .lede{font-size:16px;color:#4b5446;max-width:560px;margin-top:-10px;margin-bottom:24px}
-.form{display:grid;gap:18px;max-width:640px}
+.form{display:grid;gap:20px;max-width:640px;padding:24px;background:#fff;border:1px solid #d9ddd3;border-radius:24px}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.stars{border:0;margin:0;padding:0}
+.stars{border:0;margin:0;padding:0 0 16px;border-bottom:1px solid #e1e4dc}
 .stars legend,.field{font-size:13px;font-weight:500;letter-spacing:.02em}
 .req{color:#687c22}
-.star-row{display:inline-flex;flex-direction:row-reverse;gap:4px;margin-top:8px}
+.star-row{display:inline-flex;flex-direction:row-reverse;gap:4px;margin-top:10px}
 .star-row input{position:absolute;opacity:0;width:1px;height:1px}
-.star-row label{font-size:38px;line-height:1;color:#c3c8bb;cursor:pointer;padding:2px;transition:color .15s,transform .15s}
+.star-row label{font-size:38px;line-height:1;color:#c3c8bb;cursor:pointer;padding:6px 8px;border-radius:12px;transition:color .15s,transform .15s,background .15s}
 .star-row label:hover,.star-row label:hover~label,.star-row input:checked~label{color:#161916}
+.star-row label:hover,.star-row input:checked+label{background:#eaffae}
 .star-row input:checked+label{transform:scale(1.08)}
 .star-row input:focus-visible+label{outline:3px solid #687c22;outline-offset:2px;border-radius:4px}
 .field{display:grid;gap:8px}
-.field input,.field textarea{width:100%;border:1px solid #a9ada2;background:#fff;border-radius:0;padding:14px 14px;font-size:16px;font-weight:400;letter-spacing:0}
+.field input,.field textarea{width:100%;border:1px solid #b9c0b2;background:#f5f6f2;border-radius:16px;padding:15px 17px;font-size:16px;font-weight:400;letter-spacing:0;transition:border-color .2s,box-shadow .2s}
 .field textarea{resize:vertical;min-height:130px;line-height:1.5}
 .field input:focus,.field textarea:focus{border-color:#161916;outline:none;box-shadow:0 0 0 3px #d5ff5f}
 .check{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:14px;line-height:1.45;color:#3d4538}
 .check input{width:20px;height:20px;accent-color:#161916;margin:1px 0 0}
-.form .button{justify-self:stretch}
+.form .button{justify-self:stretch;width:100%;font-weight:500}
+.form .button:disabled{opacity:.6;cursor:wait;transform:none}
 .form-status{font-size:14px;min-height:1.4em}
 .form-status.ok{color:#3f5a00}.form-status.err{color:#a3261b}
 
@@ -137,7 +139,7 @@ h2 em:before{content:'';position:absolute;z-index:-1;inset:10% -3% 0;background:
   .help-list{display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
   .work-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
   .review-list{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-  .form .button{justify-self:start;min-width:280px}
+  .form{padding:32px}
   .footer{grid-template-columns:1fr auto;align-items:end}
   .footer-meta{text-align:right}
 }

@@ -77,7 +77,9 @@ git push
 
 ## Omdömesformulär
 
-Formuläret är förberett för Formspree men skickar inget än. När en Formspree-endpoint finns:
+Formuläret skickar omdömen via `/api/review` och befintlig STRATO-SMTP till `info@digisoul.se`. Vercel behöver `SMTP_USER` och `SMTP_PASS` (samma variabler som startsidans kontaktformulär). Ett omdöme mejlas för granskning och publiceras inte automatiskt.
+
+För en annan mottagare kan `saljarprofil/config.json` ändras, exempelvis till Formspree:
 
 1. Skapa ett formulär på [formspree.io](https://formspree.io)
 2. Uppdatera `saljarprofil/config.json`:
@@ -89,7 +91,7 @@ Formuläret är förberett för Formspree men skickar inget än. När en Formspr
    ```
 3. Bygg om profilerna enligt steg 3-6 ovan
 
-Tills dess hänvisas besökare till mejl direkt.
+Vid SMTP-fel får besökaren ett felmeddelande och kan mejla `info@digisoul.se` direkt.
 
 ## Publicerade omdömen
 

@@ -1,10 +1,11 @@
 {
-  "_kommentar": "Gemensamma inställningar för alla säljarprofiler. Byt omdome_formular.typ när en mottagare finns.",
+  "_kommentar": "Gemensamma inställningar för alla säljarprofiler. Omdömen skickas via Digisouls STRATO-SMTP och granskas före publicering.",
   "bas_url": "https://www.digisoul.se",
   "profil_sokvag": "/s/",
   "omdome_formular": {
-    "_typer": "ingen | formspree | supabase | google_forms | post",
-    "typ": "ingen",
+    "_typer": "digisoul | ingen | formspree | supabase | google_forms | post",
+    "typ": "digisoul",
+    "digisoul_endpoint": "/api/review",
     "formspree_endpoint": "https://formspree.io/f/DITT_FORMULAR_ID",
     "supabase_url": "https://DITT-PROJEKT.supabase.co",
     "supabase_anon_key": "PUBLIK_ANON_NYCKEL",

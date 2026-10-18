@@ -57,7 +57,7 @@
   <div class="section-top"><span class="eyebrow">04 · LÄMNA ETT OMDÖME</span></div>
   <h2 id="lamna">Har vi jobbat <em>ihop?</em></h2>
   <p class="lede">Berätta gärna hur det var. Omdömen läses och godkänns innan de visas på sidan.</p>
-  <form id="omdome-form" class="form" method="post" action="#" data-typ="ingen" novalidate>
+  <form id="omdome-form" class="form" method="post" action="/api/review" data-typ="digisoul" novalidate>
     <input type="hidden" name="saljare" value="sara">
     <input type="hidden" name="profil" value="sara-jecm69">
     <input type="hidden" name="_subject" value="Nytt omdöme för Sara (Digisoul Media)">
@@ -87,7 +87,7 @@
 <span>Digitalt hantverk. <em>Med själ.</em></span></div>
   <div class="footer-meta"><a href="https://www.digisoul.se/">digisoul.se</a><span>© 2026 Digisoul Media · Webbstudio i Göteborg</span></div>
 </footer>
-<script>window.OMDOME_CONFIG={"typ": "ingen", "fallback_epost": "sara@digisoul.se"};</script>
+<script>window.OMDOME_CONFIG={"typ": "digisoul", "fallback_epost": "sara@digisoul.se", "endpoint": "/api/review"};</script>
 <script src="/s/_assets/profil.js" defer></script>
 </body>
 </html>

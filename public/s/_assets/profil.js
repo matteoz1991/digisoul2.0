@@ -9,6 +9,10 @@
     text:(f.get('text')||'').trim(),samtycke:f.get('samtycke')==='ja',saljare:f.get('saljare'),profil:f.get('profil'),gotcha:f.get('_gotcha')}}
   function send(d){
     switch(cfg.typ){
+      case 'digisoul':
+        return fetch(cfg.endpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+          body:JSON.stringify({...d,betyg:Number(d.betyg)})})
+          .then(function(r){return r.json().then(function(result){if(!r.ok||!result.ok) throw new Error(result.message||'Kunde inte skicka omdömet.');});});
       case 'formspree': case 'post':
         var fd=new FormData(form);
         return fetch(cfg.endpoint,{method:'POST',body:fd,headers:{'Accept':'application/json'}})
@@ -37,7 +41,7 @@
     send(d).then(function(){form.reset();say('Tack för ditt omdöme! Det visas här när det har godkänts.','ok');})
       .catch(function(err){
         if(err.message==='ingen-mottagare'){say('Formuläret är inte kopplat ännu. Mejla gärna ditt omdöme till '+(cfg.fallback_epost||'oss')+'.','err');}
-        else{say('Något gick fel. Försök igen eller mejla '+(cfg.fallback_epost||'oss')+'.','err');}
+        else{say(err.message||'Något gick fel. Försök igen eller mejla info@digisoul.se.','err');}
       }).then(function(){btn.disabled=false;});
   });
 })();

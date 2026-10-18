@@ -24,8 +24,9 @@ Statiska profilsidor per säljare. De har dolda adresser (`/s/<id>-<6 tecken>`) 
 
 ## Omdömen
 Formulärets mottagare väljs i `config.json` → `omdome_formular.typ`:
-- `ingen` (nu): formuläret validerar men skickar inget. Besökaren ombeds mejla i stället.
-- `formspree`: skapa ett formulär på formspree.io och klistra in endpoint. Omdömena kommer som mejl. **Rekommenderas.**
+- `digisoul` (nu): skickar via `/api/review` och STRATO-SMTP till `info@digisoul.se`. Kräver `SMTP_USER` och `SMTP_PASS` i Vercel.
+- `ingen`: formuläret validerar men skickar inget. Besökaren ombeds mejla i stället.
+- `formspree`: skapa ett formulär på formspree.io och klistra in endpoint. Omdömena kommer som mejl.
 - `supabase`: kör `supabase-omdomen.sql` och fyll i URL och publik anon-nyckel.
 - `google_forms`: formResponse-URL och entry-id:n per fält.
 - `post`: valfri egen endpoint (FormData-POST).

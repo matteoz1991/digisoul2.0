@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "node --test contact.test.mjs"
+    "test": "node --test contact.test.mjs review.test.mjs"
   },
   "devDependencies": {
     "jimp": "^1.6.1",
