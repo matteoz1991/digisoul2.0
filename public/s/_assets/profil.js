@@ -3,7 +3,13 @@
   var form=document.getElementById('omdome-form'); if(!form) return;
   var cfg=window.OMDOME_CONFIG||{typ:'ingen'};
   var status=form.querySelector('.form-status');
+  var fallback=form.querySelector('.form-fallback');
   function say(msg,cls){status.textContent=msg;status.className='form-status '+(cls||'');}
+  function offerEmail(d){
+    var body='Omdöme för '+d.saljare+'\n\nBetyg: '+d.betyg+' av 5\nNamn: '+d.namn+'\nFöretag: '+(d.foretag||'Ej angivet')+'\n\n'+d.text+'\n\nJag godkänner att mitt omdöme, namn och företag får visas på profilsidan.';
+    fallback.href='mailto:info@digisoul.se?subject='+encodeURIComponent('Omdöme för '+d.saljare)+'&body='+encodeURIComponent(body);
+    fallback.hidden=false;
+  }
   function data(){var f=new FormData(form);return{
     betyg:f.get('betyg'),namn:(f.get('namn')||'').trim(),foretag:(f.get('foretag')||'').trim(),
     text:(f.get('text')||'').trim(),samtycke:f.get('samtycke')==='ja',saljare:f.get('saljare'),profil:f.get('profil'),gotcha:f.get('_gotcha')}}
@@ -32,6 +38,7 @@
   }
   form.addEventListener('submit',function(e){
     e.preventDefault();
+    fallback.hidden=true;
     var d=data();
     if(d.gotcha){say('Tack!','ok');return;}
     if(!d.betyg){say('Välj ett betyg mellan 1 och 5.','err');return;}
@@ -41,7 +48,8 @@
     send(d).then(function(){form.reset();say('Tack för ditt omdöme! Det visas här när det har godkänts.','ok');})
       .catch(function(err){
         if(err.message==='ingen-mottagare'){say('Formuläret är inte kopplat ännu. Mejla gärna ditt omdöme till '+(cfg.fallback_epost||'oss')+'.','err');}
-        else{say(err.message||'Något gick fel. Försök igen eller mejla info@digisoul.se.','err');}
+        else{say('Omdömet kunde inte skickas automatiskt. Du kan öppna det i ditt e-postprogram i stället.','err');}
+        offerEmail(d);
       }).then(function(){btn.disabled=false;});
   });
 })();

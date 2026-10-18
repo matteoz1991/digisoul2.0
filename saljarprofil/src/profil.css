@@ -113,6 +113,7 @@ h2 em:before{content:'';position:absolute;z-index:-1;inset:10% -3% 0;background:
 .check input{width:20px;height:20px;accent-color:#161916;margin:1px 0 0}
 .form .button{justify-self:stretch;width:100%;font-weight:500}
 .form .button:disabled{opacity:.6;cursor:wait;transform:none}
+.form-fallback[hidden]{display:none}
 .form-status{font-size:14px;min-height:1.4em}
 .form-status.ok{color:#3f5a00}.form-status.err{color:#a3261b}
 

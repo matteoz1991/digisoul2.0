@@ -91,7 +91,7 @@ För en annan mottagare kan `saljarprofil/config.json` ändras, exempelvis till 
    ```
 3. Bygg om profilerna enligt steg 3-6 ovan
 
-Vid SMTP-fel får besökaren ett felmeddelande och kan mejla `info@digisoul.se` direkt.
+Vid SMTP-fel får besökaren en knapp som öppnar ett färdigifyllt mejl till `info@digisoul.se` i det egna e-postprogrammet. Den vägen kräver att besökaren själv skickar mejlet.
 
 ## Publicerade omdömen
 
