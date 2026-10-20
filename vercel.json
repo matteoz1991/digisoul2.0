@@ -42,6 +42,11 @@
       "source": "/projekt09",
       "destination": "/projekt09/",
       "permanent": false
+    },
+    {
+      "source": "/skiplist",
+      "destination": "/skiplist/",
+      "permanent": false
     }
   ]
 }

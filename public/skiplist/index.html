@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkipList – Job Filter for Upwork</title>
+  <meta name="description" content="See client hire rates, spend, country and payment verification in your Upwork job feed. Filter out poor fits with SkipList, a local-only Chrome extension.">
+  <meta name="theme-color" content="#f7f5f0">
+  <link rel="canonical" href="https://www.digisoul.se/skiplist">
+  <meta property="og:url" content="https://www.digisoul.se/skiplist">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SkipList – Job Filter for Upwork">
+  <meta property="og:description" content="Less digging. Fewer bad fits. Client-quality badges and filters for freelancers who search Upwork every day. Join the launch list.">
+  <meta property="og:locale" content="en_US">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2048%2048%22%20fill%3D%22none%22%3E%3Crect%20width%3D%2248%22%20height%3D%2248%22%20rx%3D%2214%22%20fill%3D%22%23c7ef6d%22%2F%3E%3Cpath%20d%3D%22M28%2015a10%2010%200%201%200%200%2018%22%20stroke%3D%22%23263320%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22m21%2024%206%206%2010-13%22%20stroke%3D%22%23263320%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E">
+  <style>
+    :root{--paper:#f7f5f0;--white:#fff;--ink:#222720;--muted:#60665c;--line:#dcded4;--accent:#c7ef6d;--dark:#263320;--red:#a53730;--green:#32613c;--radius:18px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6}a{color:inherit}button,input{font:inherit}button,a,input,summary{-webkit-tap-highlight-color:transparent}:focus-visible{outline:3px solid #648e2c;outline-offset:4px}a{text-underline-offset:4px}h1,h2,h3,p{margin:0}h1,h2,h3{line-height:1.1;letter-spacing:-.045em}h1{font-size:clamp(44px,5.4vw,74px);font-weight:600}h2{font-size:clamp(32px,4vw,48px);font-weight:600}h3{font-size:22px;letter-spacing:-.025em}.wrap{max-width:1160px;padding:0 28px;margin:auto}.section{padding:88px 0}.eyebrow{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:20px}.muted{color:var(--muted)}.button{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:49px;padding:12px 20px;border:1px solid var(--ink);border-radius:8px;background:var(--ink);color:#fff;font-weight:700;font-size:13px;text-decoration:none;cursor:pointer;transition:background .15s,transform .15s}.button:hover{background:#3f4938;transform:translateY(-1px)}.button.light{background:transparent;color:var(--ink);border-color:#bec3b5}.button.light:hover{background:#eaece2}.button.accent{background:var(--accent);color:var(--ink);border-color:var(--accent)}.button.accent:hover{background:#d9fa9a}
+    .skip{position:absolute;left:16px;top:-100px;background:white;padding:12px;z-index:10}.skip:focus{top:12px}header{height:100px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:21px;letter-spacing:-.06em;text-decoration:none}.brand-icon svg{display:block;width:100%;height:100%}.brand-icon{flex-shrink:0;background:var(--accent);height:36px;width:36px;border-radius:8px;display:grid;place-items:center;font-size:20px;letter-spacing:0}nav{display:flex;align-items:center;gap:32px;font-size:13px}nav a{text-decoration:none}nav a:hover{text-decoration:underline}.nav-cta{font-weight:700}
+    .hero{padding:80px 0 70px;display:grid;grid-template-columns:1.05fr 1fr;gap:54px;align-items:center}.status{font-size:14px;font-weight:400;color:var(--muted);line-height:1.5;margin-bottom:22px}h1 .highlight{position:relative;display:inline;background:linear-gradient(transparent 58%,var(--accent) 58%,var(--accent) 91%,transparent 91%)}.hero-copy>p{max-width:440px;font-size:17px;color:var(--muted);margin:25px 0 28px}.signup{display:flex;gap:7px}.signup input{min-width:0;flex:1;background:#fff;border:1px solid #b9bfb0;border-radius:8px;padding:12px 14px;font-size:13px;color:var(--ink);min-height:49px}.signup .button{white-space:nowrap}.signup-note{font-size:11px;margin:10px 0 20px;color:var(--muted)}.hero-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.hero-actions>span{font-size:11px;color:var(--muted)}.hero-actions del{margin-right:4px}.local-note{font-size:11px;color:var(--muted);display:flex;gap:7px;align-items:center;margin-top:25px}
+    .demo{background:#e9ece2;border:1px solid #d8ddcf;border-radius:var(--radius);padding:16px;position:relative}.demo-top{display:flex;align-items:center;justify-content:space-between;padding:2px 2px 15px;font-size:11px}.window-dots{display:flex;gap:4px}.window-dots i{display:block;width:6px;height:6px;border-radius:50%;background:#aab29e}.demo-label{color:#59614f;font-size:10px}.feed-heading{display:flex;justify-content:space-between;align-items:center;margin:5px 3px 14px}.feed-heading strong{font-size:18px;letter-spacing:-.04em}.filter-pill{font-size:9px;background:var(--dark);color:#fff;padding:4px 8px;border-radius:5px}.job{background:white;border:1px solid #dce0d5;border-radius:10px;padding:19px;margin-top:10px}.job-meta{font-size:9px;color:#6b7165;display:flex;justify-content:space-between;gap:8px;margin-bottom:9px}.job h3{font-size:15px;line-height:1.35;letter-spacing:-.02em}.job p{font-size:11px;color:#62685c;margin-top:8px;line-height:1.6}.badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:14px}.badge{font-size:9px;font-weight:700;border-radius:4px;background:#f0f2ec;color:#50584a;padding:4px 6px;white-space:nowrap}.badge.bad{background:#fbece9;color:var(--red)}.badge.good{background:#eaf3e7;color:var(--green)}.job.dim{background:#f7f8f4}.job.dim h3{color:#5a6253}.demo-bottom{display:flex;align-items:center;justify-content:center;gap:7px;font-size:10px;color:#59614f;padding:16px 0 1px}.demo-caption{text-align:center;color:#707668;font-size:10px;margin-top:12px}.trust-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;justify-content:space-around;gap:20px;padding:22px 0;font-size:12px}.trust-strip span{display:flex;align-items:center;gap:10px}.check{font-weight:700;color:#536f32}
+    .section-top{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:40px}.section-top p{max-width:340px;font-size:14px;color:var(--muted)}.grid-three{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.problem-card{border-top:1px solid #bfc6b7;padding-top:23px}.small-number{font-family:monospace;font-size:11px;color:#717969;margin-bottom:25px;display:block}.problem-card p,.step p{font-size:14px;color:var(--muted);margin-top:14px;max-width:310px}.how{background:#edf0e6;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.step-icon{width:44px;height:44px;border:1px solid #c9d1bd;background:var(--paper);display:grid;place-items:center;border-radius:12px;margin-bottom:24px;font-size:21px}.step .eyebrow{margin-bottom:10px;color:var(--muted);font-size:10px}
+    .features-layout{display:grid;grid-template-columns:.85fr 1.2fr;gap:90px;align-items:start}.features-layout p{font-size:14px;margin-top:22px;color:var(--muted);max-width:330px}.feature-table{border-collapse:collapse;width:100%;font-size:13px}.feature-table th,.feature-table td{padding:15px 10px;border-bottom:1px solid var(--line);text-align:center}.feature-table th:first-child,.feature-table td:first-child{text-align:left;padding-left:0}.feature-table thead th{font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding-top:0}.feature-table .pro{background:#edf3e2}.feature-table .yes{color:#355a25;font-weight:700}.feature-table .no{color:#6f7568}.feature-table caption{text-align:left;font-size:13px;font-weight:700;margin-bottom:20px}
+    .pricing{padding-top:0}.pricing .section-top{display:block;text-align:center}.pricing .section-top p{max-width:none;margin-top:18px}.price-card{background:#fff;border:1px solid var(--line);padding:28px;border-radius:var(--radius);display:flex;flex-direction:column;position:relative}.price-card.featured{background:var(--dark);color:#fff;border-color:var(--dark)}.price-card h3{font-size:18px;letter-spacing:-.02em}.price-card>p{font-size:12px;color:var(--muted);margin-top:12px;min-height:40px}.price-card.featured>p,.price-card.featured .billing{color:#ced6c7}.price{font-size:46px;font-weight:600;letter-spacing:-.06em;margin-top:24px;line-height:1.15}.price small{font-size:12px;font-weight:400;letter-spacing:0}.price del{font-size:22px;color:#bec9b5;vertical-align:middle;margin-right:5px}.billing{font-size:11px;color:var(--muted);margin-top:8px}.price-card ul{list-style:none;padding:0;margin:26px 0;flex:1;font-size:12px}.price-card li{padding:6px 0;display:flex;gap:9px}.price-card li::before{content:"✓";color:#557534}.price-card.featured li::before{color:var(--accent)}.offer{position:absolute;top:22px;right:23px;border:1px solid #62754b;border-radius:20px;color:var(--accent);font-size:9px;letter-spacing:.05em;padding:4px 8px}.pricing-note{text-align:center;font-size:11px;color:var(--muted);margin-top:20px}
+    .faq{border-top:1px solid var(--line);display:grid;grid-template-columns:.65fr 1fr;gap:80px;padding-top:65px;padding-bottom:75px}.faq h2{max-width:280px}.faq details{border-bottom:1px solid var(--line)}.faq summary{padding:21px 28px 21px 0;cursor:pointer;list-style:none;font-weight:600;font-size:14px;position:relative}.faq summary::-webkit-details-marker{display:none}.faq summary::after{content:"+";position:absolute;right:1px;font-size:20px;top:15px;font-weight:400}.faq details[open] summary::after{content:"−"}.faq details p{font-size:13px;color:var(--muted);padding:0 25px 22px 0;line-height:1.75}
+    .final-cta{border-radius:22px;background:var(--accent);padding:56px 30px;text-align:center;margin-bottom:55px}.final-cta h2{max-width:650px;margin:auto}.final-cta>p{font-size:14px;margin:18px 0 25px;color:#3e4a30}.final-cta .signup{max-width:470px;margin:auto}.final-cta .signup-note{color:#435035;margin-bottom:0}footer{display:flex;align-items:center;justify-content:space-between;gap:25px;padding-bottom:32px}footer p{font-size:10px;color:var(--muted)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:1000px){.hero{gap:28px}h1{font-size:53px}.features-layout{gap:45px}.offer{position:static;align-self:flex-start;margin-bottom:14px;order:-1}.price-card{padding:24px}.signup{flex-wrap:wrap}.signup input{flex-basis:180px}.hero .signup .button{flex:1}.hero-actions{gap:8px}}
+    @media(max-width:720px){.wrap{padding:0 20px}header{height:77px}nav{gap:18px}nav .nav-detail{display:none}.hero{grid-template-columns:1fr;padding:44px 0 35px;gap:38px}h1{font-size:clamp(42px,9vw,62px)}.hero-copy>p{max-width:520px}.hero .signup{max-width:500px}.hero .signup .button{flex:0 0 auto}.status{margin-bottom:20px}.demo-area{max-width:500px;width:100%;margin:auto}.trust-strip{flex-wrap:wrap;justify-content:center;gap:12px 22px;font-size:10px;padding:18px 0}.section{padding:55px 0}.section-top{display:block;margin-bottom:30px}.section-top p{margin-top:18px}.grid-three{grid-template-columns:1fr;gap:27px}.problem-card p,.step p{max-width:none}.small-number{margin-bottom:15px}.step{padding-bottom:22px;border-bottom:1px solid var(--line)}.step:last-child{padding-bottom:0;border:0}.step-icon{margin-bottom:17px}.features-layout{grid-template-columns:1fr;gap:30px}.features-layout p{max-width:none}.feature-table{font-size:12px}.feature-table th,.feature-table td{padding:13px 7px}.pricing{padding-top:0}.price-card>p{min-height:0}.price-card ul{margin:19px 0}.offer{position:absolute;top:21px;right:22px}.faq{grid-template-columns:1fr;gap:18px;padding-top:45px;padding-bottom:45px}.faq h2{max-width:none}.final-cta{padding:38px 20px;margin-bottom:30px}.final-cta h2{font-size:34px}.final-cta .signup{flex-direction:column}.final-cta .signup input{flex-basis:auto}footer{align-items:flex-start;flex-direction:column;gap:15px}footer .brand{font-size:18px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  </style>
+</head>
+<body>
+  <!-- Before publishing: replace [YOUR CHECKOUT URL].
+       Launch signups use FormSubmit. Publish over HTTP(S) and confirm the activation email sent to info@digisoul.se after the first submission. Extension job data stays local.
+       Add og:url and an absolute og:image URL when a public domain and share image exist. -->
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#" aria-label="SkipList home"><span class="brand-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="14" fill="#c7ef6d"/><path d="M28 15a10 10 0 1 0 0 18" stroke="#263320" stroke-width="4" stroke-linecap="round"/><path d="m21 24 6 6 10-13" stroke="#263320" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>SkipList</a>
+      <nav aria-label="Main navigation">
+        <a class="nav-detail" href="#how-it-works">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#signup" class="nav-cta">Get early access <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="status">SkipList – Job Filter for Upwork</div>
+          <h1 id="hero-title">Your Connects<br>are too good for<br><span class="highlight">bad clients.</span></h1>
+          <p>See client quality right in your Upwork feed, filter out the poor fits, and spend your Connects where they count.</p>
+          <form class="signup" action="https://formsubmit.co/info@digisoul.se" method="post">
+            <input type="hidden" name="_subject" value="lounchlist skiplist">
+            <label class="sr-only" for="hero-email">Your email address</label>
+            <input id="hero-email" name="email" type="email" autocomplete="email" placeholder="Your email address" required>
+            <button class="button" type="submit">Join the launch list <span aria-hidden="true">↗</span></button>
+          </form>
+          <p class="signup-note">Launch news only. Unsubscribe anytime. Signup handled by FormSubmit.</p>
+          <div class="hero-actions"><a class="button light" href="[YOUR CHECKOUT URL]">Pre-order lifetime – $19</a><span><del>$29</del> Early bird price</span></div>
+          <div class="local-note"><span aria-hidden="true">◉</span> Local in your browser. You stay in control.</div>
+        </div>
+        <div class="demo-area">
+          <div class="demo" role="img" aria-label="Illustrative job feed: a landing-page job has a 4 percent hire rate and a red skip badge; a dashboard job shows 50 thousand dollars spent and verified payment; a newsletter job is marked already seen.">
+            <div class="demo-top"><div class="window-dots"><i></i><i></i><i></i></div><span class="demo-label">YOUR JOB FEED, WITH A LITTLE CONTEXT</span><span aria-hidden="true">↗</span></div>
+            <div class="feed-heading"><strong>A better first look.</strong><span class="filter-pill">⚑ Your filters are on</span></div>
+            <article class="job">
+              <div class="job-meta"><span>DESIGN · POSTED 12 MIN AGO</span><span>Fixed · $150</span></div>
+              <h3>Landing page for a new coffee brand</h3>
+              <p>Looking for a clean, friendly design for our first product launch.</p>
+              <div class="badges"><span class="badge bad">Hire rate 4% – SKIP</span><span class="badge">Spent $0</span><span class="badge">United States</span><span class="badge bad">Payment unverified</span></div>
+            </article>
+            <article class="job">
+              <div class="job-meta"><span>DEVELOPMENT · POSTED 18 MIN AGO</span><span>Hourly · $45–65</span></div>
+              <h3>Frontend developer for an analytics dashboard</h3>
+              <p>Help our small team make complex reports easier to understand.</p>
+              <div class="badges"><span class="badge good">Hire rate 86%</span><span class="badge good">Spent $50k+</span><span class="badge">Canada</span><span class="badge good">✓ Payment verified</span></div>
+            </article>
+            <article class="job dim">
+              <div class="job-meta"><span>WRITING · POSTED 1 HOUR AGO</span><span>✓ Already seen</span></div>
+              <h3>Weekly newsletter writer for a design studio</h3>
+              <div class="badges"><span class="badge good">Hire rate 72%</span><span class="badge">Spent $12k+</span><span class="badge">United Kingdom</span><span class="badge good">✓ Payment verified</span></div>
+            </article>
+            <div class="demo-bottom"><span class="check">✓</span> The details you need. Before the click.</div>
+          </div>
+          <p class="demo-caption">Illustrative preview with made-up jobs. Not the Upwork interface.</p>
+        </div>
+      </section>
+      <div class="trust-strip" aria-label="Product principles">
+        <span><b class="check" aria-hidden="true">✓</b> No auto-applying</span>
+        <span><b class="check" aria-hidden="true">✓</b> No automatic messages</span>
+        <span><b class="check" aria-hidden="true">✓</b> Your job data stays local</span>
+      </div>
+      <section class="section" aria-labelledby="problem-title">
+        <div class="section-top"><div><span class="eyebrow">Sound familiar?</span><h2 id="problem-title">Job hunting shouldn’t<br>be a second job.</h2></div><p>You sit down to find work. Forty minutes later, you’re still checking whether a client is worth a proposal.</p></div>
+        <div class="grid-three">
+          <article class="problem-card"><span class="small-number">01 / THE CONNECTS</span><h3>Paying to take a chance.</h3><p>Every proposal costs Connects. It hurts more when the client barely ever hires.</p></article>
+          <article class="problem-card"><span class="small-number">02 / THE CLICKING</span><h3>The useful details are buried.</h3><p>Open a job. Check the client. Go back. Repeat. You need that context before you click.</p></article>
+          <article class="problem-card"><span class="small-number">03 / THE TIME</span><h3>Same feed. Same dead ends.</h3><p>Thirty or forty minutes a day adds up, especially when you keep opening jobs you’ve already ruled out.</p></article>
+        </div>
+      </section>
+    </main>
+  </div>
+  <section id="how-it-works" class="section how" aria-labelledby="how-title"><div class="wrap">
+    <div class="section-top"><div><span class="eyebrow">A small change to your daily search</span><h2 id="how-title">Less digging. More deciding.</h2></div></div>
+    <div class="grid-three">
+      <article class="step"><div class="step-icon" aria-hidden="true">↓</div><span class="eyebrow">Step 01</span><h3>Install the extension.</h3><p>Add SkipList to Chrome when it launches, then open your Upwork job feed as usual.</p></article>
+      <article class="step"><div class="step-icon" aria-hidden="true">≡</div><span class="eyebrow">Step 02</span><h3>Set your standards.</h3><p>Choose your minimum hire rate or client spend. Hide jobs that fall below your thresholds.</p></article>
+      <article class="step"><div class="step-icon" aria-hidden="true">✓</div><span class="eyebrow">Step 03</span><h3>Spot the good fits.</h3><p>Scan the badges, skip the poor matches, and decide for yourself where to send a proposal.</p></article>
+    </div>
+  </div></section>
+  <div class="wrap">
+    <section class="section features-layout" aria-labelledby="features-title">
+      <div><span class="eyebrow">Useful from day one</span><h2 id="features-title">A clearer feed.<br>On your terms.</h2><p>Start with the context you need for free. Go Pro when you want more control over what makes it into your feed.</p></div>
+      <table class="feature-table">
+        <caption>Planned features at launch</caption>
+        <thead><tr><th scope="col">What’s included</th><th scope="col">Free</th><th scope="col" class="pro">Pro</th></tr></thead>
+        <tbody>
+          <tr><td>Client-quality badges</td><td class="yes">Included</td><td class="pro yes">Included</td></tr>
+          <tr><td>Filter rules</td><td>1 rule</td><td class="pro">Unlimited</td></tr>
+          <tr><td>Mark jobs as seen</td><td class="yes">Included</td><td class="pro yes">Included</td></tr>
+          <tr><td>Client &amp; country blocklist</td><td class="no"><span aria-label="Not included">—</span></td><td class="pro yes">Included</td></tr>
+          <tr><td>Saved filter profiles</td><td class="no"><span aria-label="Not included">—</span></td><td class="pro yes">Included</td></tr>
+          <tr><td>Connects-saved statistics</td><td class="no"><span aria-label="Not included">—</span></td><td class="pro yes">Included</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="section pricing" id="pricing" aria-labelledby="pricing-title">
+      <div class="section-top"><span class="eyebrow">Simple pricing</span><h2 id="pricing-title">Start free. Keep what works.</h2><p>Still being built. Join the list, or reserve lifetime Pro at the early bird price.</p></div>
+      <div class="grid-three">
+        <article class="price-card"><h3>Free</h3><p>A little context goes a long way.</p><div class="price">$0</div><div class="billing">Free at launch. No card needed.</div><ul><li>All client-quality badges</li><li>One filter rule</li><li>Mark seen jobs</li></ul><a href="#signup" class="button light">Join the launch list <span aria-hidden="true">↗</span></a></article>
+        <article class="price-card"><h3>Pro</h3><p>For the daily job-feed regular.</p><div class="price">$5<small> / month</small></div><div class="billing">Available at launch.</div><ul><li>Everything in Free</li><li>Unlimited rules &amp; saved profiles</li><li>Client &amp; country blocklist</li><li>Connects-saved statistics</li></ul><a href="#signup" class="button light">Let me know at launch <span aria-hidden="true">↗</span></a></article>
+        <article class="price-card featured"><span class="offer">EARLY BIRD</span><h3>Lifetime Pro</h3><p>One payment. All the Pro features.</p><div class="price"><del>$29</del> $19<small> once</small></div><div class="billing">Pre-order now. Access at launch.</div><ul><li>Everything in Pro</li><li>No monthly subscription</li><li>Lifetime Pro access</li><li>Full refund if we never launch</li></ul><a href="[YOUR CHECKOUT URL]" class="button accent">Pre-order lifetime – $19 <span aria-hidden="true">↗</span></a></article>
+      </div>
+      <p class="pricing-note">Pre-ordering supports development. There’s no confirmed launch date yet.</p>
+    </section>
+    <section class="faq" aria-labelledby="faq-title">
+      <div><span class="eyebrow">Fair questions</span><h2 id="faq-title">Before you<br>add another extension.</h2></div>
+      <div>
+        <details open><summary>Is it safe for my account?</summary><p>SkipList is designed to read only the information you already see and add badges and filters in your browser. It never applies to jobs, sends messages, or takes actions on your behalf. It is independent of Upwork, so we can’t guarantee how Upwork will treat third-party extensions.</p></details>
+        <details><summary>Does it collect my data?</summary><p>Your filters, seen jobs, blocklists and statistics stay locally in your browser. The extension doesn’t send your job-feed data to us. If you join the launch list, FormSubmit processes your email address and forwards your signup to info@digisoul.se so we can contact you about the launch. Your email address is used for launch news; you can unsubscribe by replying.</p></details>
+        <details><summary>When does it launch?</summary><p>There isn’t a confirmed date yet. Join the launch list and we’ll email you when it’s ready to install. A pre-order reserves access; it doesn’t give you a working extension today.</p></details>
+        <details><summary>What if it never launches?</summary><p>You’ll receive a full refund for your pre-order if SkipList never launches.</p></details>
+      </div>
+    </section>
+    <section class="final-cta" id="signup" aria-labelledby="signup-title">
+      <span class="eyebrow">Make your next search a little easier</span><h2 id="signup-title">Good work starts<br>with a better client.</h2><p>Get an email when SkipList is ready for your daily job search.</p>
+      <form class="signup" action="https://formsubmit.co/info@digisoul.se" method="post">
+            <input type="hidden" name="_subject" value="lounchlist skiplist">
+        <label class="sr-only" for="footer-email">Your email address</label>
+        <input id="footer-email" name="email" type="email" autocomplete="email" placeholder="Your email address" required>
+        <button type="submit" class="button">Join the launch list <span aria-hidden="true">↗</span></button>
+      </form>
+      <p class="signup-note">Launch news only. Unsubscribe anytime. Signup handled by FormSubmit.</p>
+    </section>
+    <footer><a class="brand" href="#"><span class="brand-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="14" fill="#c7ef6d"/><path d="M28 15a10 10 0 1 0 0 18" stroke="#263320" stroke-width="4" stroke-linecap="round"/><path d="m21 24 6 6 10-13" stroke="#263320" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>SkipList</a><p>SkipList is not affiliated with or endorsed by Upwork.</p><p>Built for the daily search.</p></footer>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
