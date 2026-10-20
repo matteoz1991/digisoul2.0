@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>Thank you — SkipList</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f5f0;color:#222720;font:16px/1.65 Arial,Helvetica,sans-serif}main{max-width:620px;margin:70px auto;padding:0 24px}.brand{font-size:22px;font-weight:700;text-decoration:none;color:inherit}section{margin-top:40px;background:#fff;border:1px solid #dcded4;border-radius:16px;padding:36px}h1{font-size:42px;line-height:1.1;letter-spacing:-.045em;margin:0 0 22px}p{color:#60665c}label{display:block;font-weight:700;font-size:14px;margin:28px 0 8px}input,button{font:inherit;width:100%;padding:13px 15px;border-radius:7px}input{border:1px solid #aeb6a5}button{margin-top:12px;border:0;background:#c7ef6d;color:#222720;font-weight:700;cursor:pointer}button:disabled{opacity:.6;cursor:wait}.note{font-size:12px}.contact{font-size:13px;margin-top:28px}a{color:inherit;text-underline-offset:3px}:focus-visible{outline:3px solid #648e2c;outline-offset:3px}#status{margin-bottom:0}footer{text-align:right;font-size:12px;margin:22px 0}.trap{display:none}@media(max-width:480px){main{margin:32px auto}section{padding:25px}h1{font-size:34px}}
+</style>
+</head>
+<body><main>
+<a class="brand" href="/skiplist/">SkipList</a>
+<section aria-labelledby="title"><h1 id="title">Thanks for supporting SkipList.</h1>
+<p>We’re building a better way to find your next client. SkipList isn’t ready to install yet. When it launches, we’ll email you the installation link and instructions for getting access to your purchase.</p>
+<form id="delivery-form" action="/api/contact" method="post">
+<label for="email">Where should we send your access details?</label>
+<input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" maxlength="254" required aria-describedby="email-note">
+<p class="note" id="email-note">Use the same email address you used at Stripe checkout so we can match it to your order.</p>
+<div class="trap" aria-hidden="true"><label for="website">Leave empty</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+<button type="submit">Send me SkipList when it’s ready</button>
+<p class="note">We’ll use this address for your order and product delivery. No newsletter signup.</p>
+<p id="status" role="status" aria-live="polite"></p>
+</form>
+<p class="note">There’s no confirmed launch date yet. If SkipList never launches, your pre-order will be fully refunded. Access is provided after we verify your payment.</p>
+<p class="contact">Questions about your order? <a href="mailto:info@digisoul.se">info@digisoul.se</a></p>
+<noscript><p>Please email info@digisoul.se with your checkout email address so we can register your delivery details.</p></noscript>
+</section><footer>Website by <a href="https://digisoul.se">digisoul.se</a></footer>
+</main>
+<script>
+const form = document.querySelector('#delivery-form');
+const status = document.querySelector('#status');
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  if (!form.reportValidity()) return;
+  const button = form.querySelector('button');
+  button.disabled = true;
+  status.textContent = 'Sending your delivery details…';
+  const email = form.elements.email.value.trim();
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 30000);
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST', headers: {'Content-Type':'application/json'}, signal: controller.signal,
+      body: JSON.stringify({name:'SkipList product delivery', email, service:'Annat', website:form.elements.website.value,
+        message:'SKIPLIST PRODUCT DELIVERY REQUEST\n\nPlease register this email for delivery of SkipList when ready: ' + email + '\n\nMatch against the Stripe order before granting access. This request is not proof of payment. Send installation and activation instructions at launch. Delivery only, no marketing subscription.'})
+    });
+    const result = await response.json();
+    if (!response.ok || !result.ok) throw new Error('Submission failed');
+    status.textContent = 'Thank you — your delivery email has been sent to our team. We’ll match it to your order and email your access details when SkipList is ready.';
+    button.textContent = 'Delivery details sent';
+    form.elements.email.readOnly = true;
+  } catch {
+    status.textContent = 'We couldn’t confirm your request. Please try again or email info@digisoul.se with your checkout email address.';
+    button.disabled = false;
+  } finally { clearTimeout(timeout); }
+});
+</script>
+</body></html>
