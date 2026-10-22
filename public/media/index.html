@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digisoul Media – Rörligt innehåll. Med själ.</title>
+<meta name="description" content="Digisoul Media i Göteborg skapar UGC-annonser, produktfilm, motion design och reklamfilm för varumärken.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5f5f0;
+    --paper-2: #e8ebe4;
+    --ink: #1a1d1a;
+    --ink-soft: #4a4f4a;
+    --line: #cfd2ca;
+    --lime: #d9ff5c;
+    --dark: #1a1d1a;
+    --dark-2: #242824;
+    --on-dark: #eceee8;
+    --on-dark-soft: #a9ada6;
+    --wrap: 1424px;
+    --gutter: clamp(16px, 4vw, 48px);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  img, video { display: block; max-width: 100%; }
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+  .eyebrow { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; }
+  .display { font-weight: 500; letter-spacing: -.045em; line-height: .95; }
+  .serif { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -.01em; }
+  .hl { background: var(--lime); padding: 0 .08em; display: inline-block; transform: rotate(-1deg); }
+
+  /* Header */
+  header.top { border-bottom: 1px solid var(--line); background: var(--paper); position: sticky; top: 0; z-index: 50; }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 88px; }
+  .logo { display: flex; align-items: center; gap: 12px; }
+  .logo svg { width: 40px; height: 40px; }
+  .logo-word { display: flex; flex-direction: column; line-height: 1; }
+  .logo-word b { font-size: 30px; font-weight: 600; letter-spacing: -.06em; }
+  .logo-word small { font-size: 10px; letter-spacing: .5em; margin-top: 3px; padding-left: 2px; }
+  nav.main { display: flex; align-items: center; gap: 36px; font-size: 15px; }
+  nav.main a:not(.pill):hover { text-decoration: underline; text-underline-offset: 4px; }
+  .pill { display: inline-flex; align-items: center; gap: 28px; border: 1px solid var(--ink); border-radius: 999px; padding: 12px 20px; font-size: 15px; transition: background .2s, color .2s; }
+  .pill::after { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .pill:hover { background: var(--ink); color: var(--paper); }
+  .pill.solid { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .pill.solid::after { background: var(--lime); }
+  .pill.solid:hover { background: #000; }
+  .pill.on-dark { border-color: var(--on-dark); color: var(--on-dark); }
+  .pill.on-dark:hover { background: var(--lime); color: var(--ink); border-color: var(--lime); }
+  .menu-btn { display: none; }
+
+  /* Hero */
+  .hero { padding: 40px 0 0; }
+  .hero-meta { display: flex; justify-content: space-between; }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; padding: 72px 0 64px; }
+  .hero h1 { font-size: clamp(64px, 10.5vw, 168px); }
+  .hero-side { display: flex; flex-direction: column; gap: 28px; }
+  .hero-side p { font-size: 17px; max-width: 360px; }
+
+  /* Media slot (video eller platshållare) */
+  .media { position: relative; overflow: hidden; background: var(--dark); border-radius: 4px; isolation: isolate; }
+  .media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .6s; }
+  .media.has-video video { opacity: 1; }
+  .media .ph {
+    position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 18px;
+    color: var(--on-dark);
+    background:
+      radial-gradient(120% 80% at 20% 10%, rgba(217,255,92,.28), transparent 55%),
+      radial-gradient(90% 90% at 90% 100%, rgba(217,255,92,.12), transparent 60%),
+      linear-gradient(160deg, #2a2f2a, #121412);
+    background-size: 200% 200%;
+    animation: drift 12s ease-in-out infinite alternate;
+  }
+  .media.has-video .ph { opacity: 0; pointer-events: none; transition: opacity .6s; }
+  .media .ph .tag { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--lime); }
+  .media .ph .label { font-size: 13px; color: var(--on-dark-soft); }
+  .media .play { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; border: 1px solid rgba(236,238,232,.5); display: grid; place-items: center; }
+  .media .play::before { content: ""; border-left: 14px solid var(--on-dark); border-top: 9px solid transparent; border-bottom: 9px solid transparent; margin-left: 4px; }
+  @keyframes drift { from { background-position: 0% 0%; } to { background-position: 100% 100%; } }
+  .ratio-9x16 { aspect-ratio: 9 / 16; }
+  .ratio-16x9 { aspect-ratio: 16 / 9; }
+  .ratio-1x1 { aspect-ratio: 1 / 1; }
+  .ratio-4x5 { aspect-ratio: 4 / 5; }
+
+  .hero-reel { position: relative; }
+  .hero-reel .media { aspect-ratio: 4 / 5; max-height: 560px; margin-left: auto; width: 100%; max-width: 440px; }
+  .hero-reel .sticker { position: absolute; left: -24px; top: 64px; background: var(--lime); padding: 10px 16px; font-size: 13px; font-weight: 500; transform: rotate(-3deg); box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+
+  .hero-foot { display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding: 22px 0; font-size: 13px; }
+
+  /* Marquee */
+  .marquee { background: var(--lime); overflow: hidden; border-top: 10px solid var(--dark); }
+  .marquee-track { display: flex; gap: 48px; white-space: nowrap; padding: 22px 0; width: max-content; animation: marq 32s linear infinite; }
+  .marquee-track span { font-size: clamp(22px, 2.4vw, 32px); font-weight: 500; letter-spacing: -.03em; }
+  .marquee-track span:nth-child(even) { color: rgba(26,29,26,.55); }
+  @keyframes marq { to { transform: translateX(-50%); } }
+
+  /* Sections */
+  section { padding: 120px 0; }
+  .sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; margin-bottom: 64px; }
+  .sec-head h2 { font-size: clamp(48px, 6vw, 88px); }
+  .sec-head p { max-width: 340px; font-size: 16px; }
+  .sec-top { display: flex; justify-content: space-between; margin-bottom: 32px; }
+
+  /* Work (dark) */
+  .work { background: var(--dark); color: var(--on-dark); }
+  .work .sec-head p { color: var(--on-dark-soft); }
+  .work-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 28px; }
+  .card { display: flex; flex-direction: column; gap: 18px; }
+  .card-frame { padding: 28px; border-radius: 2px; position: relative; }
+  .card-frame .eyebrow { font-size: 11px; color: var(--ink); margin-bottom: 22px; display: block; }
+  .card-meta { display: flex; justify-content: space-between; align-items: baseline; }
+  .card-meta h3 { font-size: 24px; font-weight: 500; letter-spacing: -.03em; }
+  .card-meta .n { font-size: 12px; color: var(--on-dark-soft); }
+  .card p.sub { color: var(--on-dark-soft); font-size: 15px; margin-top: -10px; }
+  .c-wide { grid-column: span 12; }
+  .c-half { grid-column: span 6; }
+  .c-third { grid-column: span 4; }
+  .bg-sand { background: #c9b9a6; }
+  .bg-sky { background: #ccd5dd; }
+  .bg-sage { background: #d3d8cf; }
+  .bg-stone { background: #e8e4df; }
+  .bg-lime { background: var(--lime); }
+  .phones { display: flex; gap: 20px; justify-content: center; }
+  .phones .media { width: min(260px, 30%); border-radius: 22px; border: 6px solid #0e100e; }
+  .ugc-sound { display: none; position: absolute; z-index: 3; left: 12px; bottom: 12px; width: 40px; height: 40px; place-items: center; border: 1px solid var(--lime); border-radius: 50%; background: var(--lime); color: var(--ink); cursor: pointer; transition: transform .2s, background .2s; }
+  .media.has-video .ugc-sound { display: grid; }
+  .ugc-sound:hover { transform: scale(1.08); background: var(--paper); }
+  .ugc-sound:focus-visible { outline: 3px solid var(--paper); outline-offset: 3px; }
+  .ugc-sound svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .ugc-sound .sound-wave, .ugc-sound.is-on .sound-slash { display: none; }
+  .ugc-sound.is-on .sound-wave { display: block; }
+  .card-frame .explore { position: absolute; right: 20px; bottom: 20px; background: var(--lime); color: var(--ink); border-radius: 999px; padding: 12px 18px; font-size: 14px; display: flex; gap: 18px; align-items: center; z-index: 2; }
+  .card-frame .explore::after { content: "+"; font-size: 20px; line-height: 1; }
+  .card-frame .explore.light { background: var(--paper); }
+
+  /* Services accordion */
+  .services { display: grid; grid-template-columns: .9fr 1.1fr; gap: 80px; }
+  .services h2 { font-size: clamp(48px, 6vw, 88px); margin: 28px 0 28px; }
+  .services .intro p { color: var(--ink-soft); max-width: 300px; margin-bottom: 28px; }
+  .u-link { border-bottom: 1px solid var(--ink); padding-bottom: 3px; font-size: 15px; }
+  .acc { border-top: 1px solid var(--line); }
+  .acc details { border-bottom: 1px solid var(--line); }
+  .acc summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 34px 1fr 24px; align-items: center; padding: 30px 0; }
+  .acc summary::-webkit-details-marker { display: none; }
+  .acc summary .no { font-size: 12px; color: var(--ink-soft); }
+  .acc summary h3 { font-size: clamp(22px, 2.2vw, 30px); font-weight: 400; letter-spacing: -.03em; }
+  .acc summary .pm { position: relative; width: 18px; height: 18px; }
+  .acc summary .pm::before, .acc summary .pm::after { content: ""; position: absolute; left: 0; top: 50%; width: 18px; height: 1.5px; background: var(--ink); transition: transform .25s; }
+  .acc summary .pm::after { transform: rotate(90deg); }
+  .acc details[open] .pm::after { transform: rotate(0deg); }
+  .acc .body { padding: 0 0 30px 34px; color: var(--ink-soft); max-width: 640px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .tags span { border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px; font-size: 13px; color: var(--ink); }
+
+  /* Process */
+  .process { background: var(--paper-2); }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+  .step { padding: 32px 28px 8px 0; border-right: 1px solid var(--line); margin-right: 28px; }
+  .step:last-child { border-right: 0; margin-right: 0; }
+  .step .no { font-size: 12px; letter-spacing: .14em; color: var(--ink-soft); }
+  .step h3 { font-size: 26px; font-weight: 500; letter-spacing: -.03em; margin: 40px 0 12px; }
+  .step p { color: var(--ink-soft); font-size: 15px; }
+
+  /* Team */
+  .team { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  .team-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-bottom: 72px; }
+  .team-intro h2 { font-size: clamp(48px, 6vw, 88px); }
+  .team-intro p { color: var(--ink-soft); max-width: 440px; margin-bottom: 16px; }
+  .person { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: end; }
+  .person .portrait { aspect-ratio: 4 / 5; background: linear-gradient(160deg, #3a403a, #1a1d1a); display: grid; place-items: center; color: var(--lime); font-size: 64px; font-weight: 500; letter-spacing: -.05em; }
+  .person h3 { font-size: 30px; font-weight: 400; letter-spacing: -.03em; }
+  .person .role { color: var(--ink-soft); font-size: 14px; margin-bottom: 22px; }
+  .person a { display: block; font-size: 15px; }
+
+  /* Pricing */
+  .prices { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .price { padding: 40px 32px 40px 0; display: flex; flex-direction: column; }
+  .price + .price { border-left: 1px solid var(--line); padding-left: 32px; }
+  .price .amount { font-size: clamp(40px, 4vw, 52px); font-weight: 400; letter-spacing: -.05em; margin: 28px 0 22px; }
+  .price .amount small { font-size: 18px; letter-spacing: 0; }
+  .price > p { color: var(--ink-soft); min-height: 72px; }
+  .price ul { list-style: none; margin: 40px 0 36px; display: grid; gap: 8px; font-size: 15px; }
+  .price li::before { content: "+"; color: var(--ink-soft); margin-right: 12px; }
+  .price .u-link { align-self: flex-start; margin-top: auto; }
+  .note { font-size: 13px; color: var(--ink-soft); margin-top: 20px; }
+
+  /* Contact */
+  .contact { background: var(--lime); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+  .contact h2 { font-size: clamp(64px, 8vw, 120px); margin: 48px 0 40px; }
+  .contact .big-mail { font-size: clamp(28px, 3.2vw, 42px); letter-spacing: -.03em; border-bottom: 2px solid var(--ink); display: inline-block; margin: 24px 0 18px; }
+  form { margin-top: 48px; display: grid; gap: 28px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips input { position: absolute; opacity: 0; pointer-events: none; }
+  .chips label { border: 1px solid rgba(26,29,26,.45); border-radius: 999px; padding: 10px 18px; cursor: pointer; font-size: 15px; }
+  .chips input:checked + label { background: var(--ink); color: var(--lime); border-color: var(--ink); }
+  .chips input:focus-visible + label { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .field label { font-size: 14px; display: block; margin-bottom: 8px; }
+  .field input, .field textarea { width: 100%; background: transparent; border: 0; border-bottom: 1px solid rgba(26,29,26,.5); padding: 8px 0; font: inherit; color: var(--ink); }
+  .field input:focus, .field textarea:focus { outline: none; border-bottom-color: var(--ink); }
+  .field textarea { min-height: 70px; resize: vertical; }
+  form .pill { justify-self: start; cursor: pointer; font: inherit; padding: 16px 26px; }
+  form small { font-size: 12px; color: rgba(26,29,26,.7); }
+
+  /* Footer */
+  footer { background: var(--dark); color: var(--on-dark); padding: 48px 0 32px; }
+  .foot-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 40px; border-bottom: 1px solid #3a3e3a; }
+  .foot-top .logo-word b { color: var(--on-dark); }
+  .foot-bot { display: flex; justify-content: space-between; gap: 24px; padding-top: 28px; font-size: 13px; color: var(--on-dark-soft); }
+  .foot-bot a, .foot-bot button { color: var(--on-dark); text-decoration: underline; text-underline-offset: 3px; background: none; border: 0; font: inherit; cursor: pointer; }
+  .sister { color: var(--on-dark-soft); }
+  .sister a { color: var(--lime); text-decoration: none; border-bottom: 1px solid var(--lime); }
+
+  /* Paus av rörelse */
+  body.still *, body.still *::before, body.still *::after { animation-play-state: paused !important; }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track, .media .ph { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Responsive */
+  @media (max-width: 980px) {
+    nav.main a:not(.pill) { display: none; }
+    .hero-grid, .services, .team, .team-intro, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-reel .media { max-width: none; margin: 0; }
+    .hero-reel .sticker { left: 12px; }
+    .c-half, .c-third { grid-column: span 12; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .step:nth-child(2) { border-right: 0; }
+    .prices { grid-template-columns: 1fr; }
+    .price + .price { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; }
+    .sec-head { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 80px 0; }
+    header.top .wrap { height: 72px; }
+    .logo-word b { font-size: 24px; }
+    .pill { gap: 16px; padding: 10px 16px; font-size: 14px; }
+    .hero-meta { flex-direction: column; gap: 6px; }
+    .hero-foot { flex-direction: column; gap: 6px; }
+    .card-frame { padding: 16px; }
+    .phones { gap: 10px; }
+    .phones .media { border-radius: 14px; border-width: 4px; }
+    .steps { grid-template-columns: 1fr; }
+    .step { border-right: 0; margin-right: 0; border-bottom: 1px solid var(--line); padding-right: 0; }
+    .person { grid-template-columns: 1fr; }
+    .row { grid-template-columns: 1fr; }
+    .foot-top, .foot-bot { flex-direction: column; align-items: flex-start; gap: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 100 100">
+    <path d="M8 8 H62 C80 8 92 22 92 42 H34 C20 42 8 30 8 8 Z" fill="#1a1d1a" stroke="#d9ff5c" stroke-width="3"/>
+    <path d="M8 52 H62 C80 52 92 66 92 86 H34 C20 86 8 74 8 52 Z" fill="#1a1d1a" stroke="#d9ff5c" stroke-width="3"/>
+  </symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a href="#" class="logo" aria-label="Digisoul Media – till startsidan">
+      <svg><use href="#mark"/></svg>
+      <span class="logo-word"><b>Digisoul</b><small>MEDIA</small></span>
+    </a>
+    <nav class="main" aria-label="Huvudmeny">
+      <a href="#arbete">Arbete</a>
+      <a href="#vad-vi-gor">Vad vi gör</a>
+      <a href="#process">Process</a>
+      <a href="#studion">Studion</a>
+      <a href="#kontakt" class="pill">Prata med oss</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-meta eyebrow"><span>Content- &amp; videostudio</span><span>Göteborg, Sverige</span></div>
+      <div class="hero-grid">
+        <h1 class="display">Rörligt<br>innehåll.<br>Med <span class="hl">själ.</span></h1>
+        <div class="hero-side">
+          <div class="hero-reel">
+            <div class="media" data-video="media/showreel.mp4" data-poster="media/showreel.jpg">
+              <div class="ph"><span class="tag">Showreel 2026</span><span class="play" aria-hidden="true"></span><span class="label">UGC · Produktfilm · Motion</span></div>
+            </div>
+            <span class="sticker">Från stillbild till scroll-stopp</span>
+          </div>
+          <p>Vi skapar annonsfilmer, produktvideor och motion design som får folk att stanna i flödet. Och klicka vidare.</p>
+          <a href="#arbete" class="pill solid" style="align-self:flex-start">Se vårt arbete</a>
+        </div>
+      </div>
+      <div class="hero-foot"><span>UGC-annonser / Produktfilm / Motion design / Reklamfilm</span><span>Scrolla och se vad vi gör ↓</span></div>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>STOPPAR SCROLLEN PÅ TVÅ SEKUNDER.</span><span>HELA VÄGEN TILL SISTA BILDRUTAN.</span>
+      <span>STOPPAR SCROLLEN PÅ TVÅ SEKUNDER.</span><span>HELA VÄGEN TILL SISTA BILDRUTAN.</span>
+      <span>STOPPAR SCROLLEN PÅ TVÅ SEKUNDER.</span><span>HELA VÄGEN TILL SISTA BILDRUTAN.</span>
+      <span>STOPPAR SCROLLEN PÅ TVÅ SEKUNDER.</span><span>HELA VÄGEN TILL SISTA BILDRUTAN.</span>
+    </div>
+  </div>
+
+  <!-- ARBETE -->
+  <section class="work" id="arbete">
+    <div class="wrap">
+      <div class="sec-top eyebrow"><span>01 / Utvalt arbete</span><span>Från produktbild till färdig film</span></div>
+      <div class="sec-head">
+        <h2 class="display">Olika produkter.<br>Samma känsla.</h2>
+        <p>Varje film börjar med produkten och slutar med en tittare som vill veta mer. Här är några exempel på vad vi gör.</p>
+      </div>
+
+      <div class="work-grid">
+        <article class="card c-wide">
+          <div class="card-frame bg-sage">
+            <span class="eyebrow">UGC-annonser · 9:16</span>
+            <div class="phones">
+              <div class="media ratio-9x16" data-video="media/ugc-1.mp4"><div class="ph"><span class="tag">Hook: reaktion</span><span class="play" aria-hidden="true"></span><span class="label">0:10 · Haga</span></div></div>
+              <div class="media ratio-9x16" data-video="media/ugc-2.mp4"><div class="ph"><span class="tag">Hook: tyst demo</span><span class="play" aria-hidden="true"></span><span class="label">0:10 · Hamnkanalen</span></div></div>
+              <div class="media ratio-9x16" data-video="media/ugc-3.mp4"><div class="ph"><span class="tag">Hook: tre sätt</span><span class="play" aria-hidden="true"></span><span class="label">0:10 · spårvagn → Haga</span></div></div>
+            </div>
+            <a href="#kontakt" class="explore">Utforska projektet</a>
+          </div>
+          <div class="card-meta"><h3>ÄLV Kombucha – UGC-serie</h3><span class="n">01</span></div>
+          <p class="sub">Tre hooks, en produkt, inspelat i Göteborgs city. Påhittat varumärke och AI-skådespelare, gjort som demo.</p>
+        </article>
+
+        <article class="card c-half">
+          <div class="card-frame bg-sand">
+            <span class="eyebrow">Hyper motion · 16:9</span>
+            <div class="media ratio-16x9" data-video="media/motion-1.mp4"><div class="ph"><span class="tag">Produktfilm</span><span class="play" aria-hidden="true"></span><span class="label">Makro · ljus · fysik</span></div></div>
+            <a href="#kontakt" class="explore light">Utforska projektet</a>
+          </div>
+          <div class="card-meta"><h3>Produktfilm i 3D-känsla</h3><span class="n">02</span></div>
+          <p class="sub">Dramatiskt ljus och detaljer som syns.</p>
+        </article>
+
+        <article class="card c-half">
+          <div class="card-frame bg-sky">
+            <span class="eyebrow">Motion design · 1:1</span>
+            <div class="media ratio-16x9" data-video="media/logo-1.mp4"><div class="ph"><span class="tag">Logoanimation</span><span class="play" aria-hidden="true"></span><span class="label">Varumärke i rörelse</span></div></div>
+            <a href="#kontakt" class="explore">Utforska projektet</a>
+          </div>
+          <div class="card-meta"><h3>Logo &amp; varumärke i rörelse</h3><span class="n">03</span></div>
+          <p class="sub">Från statisk logga till intro, outro och sociala inslag.</p>
+        </article>
+
+        <article class="card c-wide">
+          <div class="card-frame bg-stone">
+            <span class="eyebrow">Reklamfilm · upp till 30 s · pågående</span>
+            <div class="media ratio-16x9" data-video="media/commercial-1.mp4"><div class="ph"><span class="tag">Reklamfilm</span><span class="play" aria-hidden="true"></span><span class="label">Manus · storyboard · film</span></div></div>
+            <a href="#kontakt" class="explore">Utforska projektet</a>
+          </div>
+          <div class="card-meta"><h3>Kort reklamfilm med berättelse</h3><span class="n">04</span></div>
+          <p class="sub">Början, mitt och slut på en halv minut.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true" style="border-top:0">
+    <div class="marquee-track" style="animation-direction:reverse">
+      <span>GENOMTÄNKT FRÅN FÖRSTA BILDRUTAN.</span><span>STORYBOARD INNAN RENDERING.</span>
+      <span>GENOMTÄNKT FRÅN FÖRSTA BILDRUTAN.</span><span>STORYBOARD INNAN RENDERING.</span>
+      <span>GENOMTÄNKT FRÅN FÖRSTA BILDRUTAN.</span><span>STORYBOARD INNAN RENDERING.</span>
+      <span>GENOMTÄNKT FRÅN FÖRSTA BILDRUTAN.</span><span>STORYBOARD INNAN RENDERING.</span>
+    </div>
+  </div>
+
+  <!-- VAD VI GÖR -->
+  <section id="vad-vi-gor">
+    <div class="wrap services">
+      <div class="intro">
+        <span class="eyebrow">02 / Vad vi gör</span>
+        <h2 class="display">Rätt hook.<br>Rätt rörelse.</h2>
+        <p>Från produktbild till färdig film. Vi hjälper er hitta vinkeln som fungerar i er nisch och bygger innehållet runt den.</p>
+        <a href="#kontakt" class="u-link">Berätta om er produkt</a>
+      </div>
+      <div class="acc">
+        <details open>
+          <summary><span class="no">01</span><h3>UGC-annonser</h3><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body">Korta, vertikala annonser i creator-stil för TikTok, Reels och Shorts. Vi börjar med en konkurrentanalys av er nisch, skriver manus med en hook på två sekunder och levererar flera varianter att testa.
+            <div class="tags"><span>Konkurrentanalys</span><span>Manus</span><span>9:16</span><span>A/B-varianter</span></div>
+          </div>
+        </details>
+        <details>
+          <summary><span class="no">02</span><h3>Produktfilm &amp; hyper motion</h3><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body">Premium produktfilm med makrodetaljer, dramatiskt ljus och fysik: tyg som rör sig, droppar, partiklar. Ni godkänner ljussättning och storyboard innan något renderas.
+            <div class="tags"><span>Ljussättning</span><span>Storyboard</span><span>16:9 · 9:16 · 1:1</span></div>
+          </div>
+        </details>
+        <details>
+          <summary><span class="no">03</span><h3>Motion design &amp; logo</h3><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body">Animerade loggor, typografi och övergångar för appar, tjänster och varumärken. Rent, elegant och i er visuella identitet.
+            <div class="tags"><span>Logoanimation</span><span>Typografi</span><span>Intro/outro</span></div>
+          </div>
+        </details>
+        <details>
+          <summary><span class="no">04</span><h3>Reklamfilm</h3><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body">En hel annons med berättelse, upp till 30 sekunder. Manus först, sedan storyboard, sedan film.
+            <div class="tags"><span>Manus</span><span>Storyboard</span><span>Ljuddesign</span></div>
+          </div>
+        </details>
+        <details>
+          <summary><span class="no">05</span><h3>Produktbilder</h3><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body">Stillbilder till webbshop och annonser i samma ljus och stil som era filmer, så att allt hänger ihop.
+            <div class="tags"><span>Webbshop</span><span>Annonser</span><span>Enhetlig stil</span></div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="wrap">
+      <div class="sec-top eyebrow"><span>03 / Så jobbar vi</span><span>Inga överraskningar</span></div>
+      <div class="sec-head">
+        <h2 class="display">Stillbild först.<br>Film sen.</h2>
+        <p>Ni ser och godkänner varje steg innan vi går vidare. Det gör ändringar snabba och billiga.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="no">01</span><h3>Brief</h3><p>Ni skickar produktbild, mål och kanal. Vi kollar vad som fungerar i er nisch just nu.</p></div>
+        <div class="step"><span class="no">02</span><h3>Manus &amp; ljus</h3><p>Hooks, manus och ljussättning tas fram och visas som stillbilder.</p></div>
+        <div class="step"><span class="no">03</span><h3>Storyboard</h3><p>Hela filmen bild för bild. Inget renderas förrän ni sagt ja.</p></div>
+        <div class="step"><span class="no">04</span><h3>Leverans</h3><p>Färdiga filmer i rätt format, plus varianter för fler produkter eller kanaler.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDION -->
+  <section id="studion">
+    <div class="wrap">
+      <div class="sec-top eyebrow"><span>04 / Människorna bakom</span><span>Liten studio. Nära samarbete.</span></div>
+      <div class="team-intro">
+        <h2 class="display">Ni pratar med oss.<br>Vi gör filmen.</h2>
+        <div>
+          <p>Digisoul Media är systerstudion till Digisoul i Göteborg. Här jobbar vi med rörligt innehåll och annonser, och ni möter samma personer från första idé till färdig film.</p>
+          <p>Vi använder AI-verktyg i produktionen. Därför är vi noga med att produkten alltid ser ut som i verkligheten och att allt AI-genererat märks enligt plattformarnas regler.</p>
+        </div>
+      </div>
+      <div class="team">
+        <div class="person">
+          <div class="portrait" aria-hidden="true">M</div>
+          <div><h3>Mattias</h3><p class="role">Kreativ ledare &amp; produktion</p><a href="mailto:mattias@digisoul.se">mattias@digisoul.se</a><a href="tel:+46737255718">073-725 57 18</a></div>
+        </div>
+        <div class="person">
+          <div class="portrait" aria-hidden="true">S</div>
+          <div><h3>Sara</h3><p class="role">Säljare &amp; kundansvarig</p><a href="mailto:sara@digisoul.se">sara@digisoul.se</a><a href="tel:+46733380810">073-338 08 10</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRISER -->
+  <section id="priser" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-top eyebrow"><span>05 / Investeringen</span></div>
+      <div class="sec-head">
+        <h2 class="display">Testa först.<br>Skala sen.</h2>
+        <p>Tre utgångspunkter för olika behov. Vi går igenom omfattningen innan vi börjar.</p>
+      </div>
+      <div class="prices">
+        <div class="price">
+          <span class="eyebrow">Test</span>
+          <div class="amount">2 999 <small>kr</small></div>
+          <p>Ett första test: se hur er produkt fungerar som UGC-annons.</p>
+          <ul><li>3 UGC-videor, 15 s</li><li>Kort konkurrentanalys</li><li>9:16 för TikTok &amp; Reels</li><li>1 revideringsrunda</li></ul>
+          <a href="#kontakt" class="u-link">Prata om Test</a>
+        </div>
+        <div class="price">
+          <span class="eyebrow">Kampanj</span>
+          <div class="amount">7 900 <small>kr</small></div>
+          <p>Fler varianter att testa och en produktfilm som håller över tid.</p>
+          <ul><li>10 UGC-videor</li><li>1 produktfilm, 15 s</li><li>Alla format: 9:16, 16:9, 1:1</li><li>2 revideringsrundor</li></ul>
+          <a href="#kontakt" class="u-link">Prata om Kampanj</a>
+        </div>
+        <div class="price">
+          <span class="eyebrow">Varumärke</span>
+          <div class="amount">17 900 <small>kr+</small></div>
+          <p>För varumärken som vill ha en hel kampanj med berättelse.</p>
+          <ul><li>Reklamfilm upp till 30 s</li><li>Logoanimation</li><li>UGC-serie &amp; produktbilder</li><li>Löpande innehåll per månad</li></ul>
+          <a href="#kontakt" class="u-link">Prata om Varumärke</a>
+        </div>
+      </div>
+      <p class="note">Alla priser exklusive moms.</p>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="contact" id="kontakt">
+    <div class="wrap">
+      <div class="sec-top eyebrow"><span>06 / Nästa kapitel</span><span>Det börjar med en produkt</span></div>
+      <div class="contact-grid">
+        <div>
+          <h2 class="display">Vad ska vi<br>filma <span class="serif">nu?</span></h2>
+          <p>En produkt, en lansering eller en idé som behöver röra sig. Skicka en bild, så återkommer vi med en vinkel.</p>
+          <a href="mailto:info@digisoul.se" class="big-mail">info@digisoul.se</a>
+          <p><a href="tel:+46737255718">073-725 57 18</a></p>
+        </div>
+        <form id="contact-form">
+          <div>
+            <span class="field"><label id="typ-label">Vad behöver ni hjälp med?</label></span>
+            <div class="chips" role="radiogroup" aria-labelledby="typ-label">
+              <input type="radio" name="typ" id="t1" value="UGC-annonser" checked><label for="t1">UGC-annonser</label>
+              <input type="radio" name="typ" id="t2" value="Produktfilm"><label for="t2">Produktfilm</label>
+              <input type="radio" name="typ" id="t3" value="Motion design"><label for="t3">Motion design</label>
+              <input type="radio" name="typ" id="t4" value="Annat"><label for="t4">Annat</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="namn">Ert namn</label><input id="namn" name="namn" placeholder="För- och efternamn" required></div>
+            <div class="field"><label for="epost">E-post</label><input id="epost" name="epost" type="email" placeholder="namn@foretag.se" required></div>
+          </div>
+          <div class="field"><label for="msg">Berätta om produkten</label><textarea id="msg" name="msg" placeholder="Vad säljer ni, och var ska filmen synas?"></textarea></div>
+          <button class="pill solid" type="submit">Skicka förfrågan</button>
+          <small>Förfrågan öppnas i ditt e-postprogram och skickas till info@digisoul.se.</small>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <a href="#" class="logo" aria-label="Till toppen">
+        <svg><use href="#mark"/></svg>
+        <span class="logo-word"><b>Digisoul</b><small>MEDIA</small></span>
+      </a>
+      <span>Rörligt innehåll. Med själ.</span>
+      <a href="#">Till toppen ↑</a>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Digisoul Media</span>
+      <span class="sister">Behöver ni en webbplats? <a href="/">digisoul.se</a></span>
+      <button type="button" id="still-btn">Pausa rörelse</button>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Ladda video i varje .media-ruta om filen finns, annars ligger platshållaren kvar.
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.media[data-video]').forEach(box => {
+    const v = document.createElement('video');
+    v.muted = true; v.loop = true; v.playsInline = true; v.preload = 'metadata';
+    if (box.dataset.poster) v.poster = box.dataset.poster;
+    v.src = box.dataset.video;
+    if (box.closest('.phones')) {
+      const sound = document.createElement('button');
+      const number = box.dataset.video.match(/ugc-(\d+)\.mp4$/)?.[1];
+      sound.type = 'button';
+      sound.className = 'ugc-sound';
+      sound.setAttribute('aria-label', `Slå på ljud för UGC-video ${number}`);
+      sound.setAttribute('aria-pressed', 'false');
+      sound.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="sound-wave" d="M16 8a5 5 0 0 1 0 8m2.5-10.5a8.5 8.5 0 0 1 0 13"/><path class="sound-slash" d="M17 9l5 6"/></svg>';
+      sound.addEventListener('click', () => {
+        const turnOn = v.muted;
+        document.querySelectorAll('.phones .media').forEach(other => {
+          const otherVideo = other.querySelector('video');
+          const otherButton = other.querySelector('.ugc-sound');
+          if (!otherVideo || !otherButton) return;
+          otherVideo.muted = !turnOn || other !== box;
+          otherButton.classList.toggle('is-on', !otherVideo.muted);
+          otherButton.setAttribute('aria-pressed', String(!otherVideo.muted));
+          otherButton.setAttribute('aria-label', `${otherVideo.muted ? 'Slå på' : 'Stäng av'} ljud för UGC-video ${other.dataset.video.match(/ugc-(\d+)\.mp4$/)?.[1]}`);
+        });
+        if (turnOn) v.play().catch(() => {});
+      });
+      box.append(sound);
+    }
+    v.addEventListener('loadeddata', () => {
+      box.classList.add('has-video');
+      if (!reduce) v.play().catch(() => {});
+    });
+    v.addEventListener('error', () => v.remove());
+    box.prepend(v);
+  });
+
+  // Spela bara videor som syns.
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    const v = e.target.querySelector('video');
+    if (!v || !e.target.classList.contains('has-video') || document.body.classList.contains('still')) return;
+    e.isIntersecting ? v.play().catch(() => {}) : v.pause();
+  }), { threshold: .25 });
+  document.querySelectorAll('.media').forEach(m => io.observe(m));
+
+  // Pausa rörelse
+  const btn = document.getElementById('still-btn');
+  btn.addEventListener('click', () => {
+    const still = document.body.classList.toggle('still');
+    btn.textContent = still ? 'Starta rörelse' : 'Pausa rörelse';
+    document.querySelectorAll('.media video').forEach(v => still ? v.pause() : v.play().catch(() => {}));
+  });
+
+  // Kontaktformulär → mailto
+  document.getElementById('contact-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = e.target;
+    const typ = f.typ.value;
+    const body = `Namn: ${f.namn.value}\nE-post: ${f.epost.value}\nBehov: ${typ}\n\n${f.msg.value}`;
+    location.href = `mailto:info@digisoul.se?subject=${encodeURIComponent('Förfrågan: ' + typ)}&body=${encodeURIComponent(body)}`;
+  });
+</script>
+</body>
+</html>

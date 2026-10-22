@@ -34,6 +34,11 @@
   ],
   "redirects": [
     {
+      "source": "/media",
+      "destination": "/media/",
+      "permanent": true
+    },
+    {
       "source": "/projekt10",
       "destination": "/projekt10/",
       "permanent": false
