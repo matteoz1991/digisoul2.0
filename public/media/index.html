@@ -142,9 +142,30 @@
   .ugc-sound svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
   .ugc-sound .sound-wave, .ugc-sound.is-on .sound-slash { display: none; }
   .ugc-sound.is-on .sound-wave { display: block; }
-  .card-frame .explore { position: absolute; right: 20px; bottom: 20px; background: var(--lime); color: var(--ink); border-radius: 999px; padding: 12px 18px; font-size: 14px; display: flex; gap: 18px; align-items: center; z-index: 2; }
+  .card-frame .explore { position: absolute; right: 20px; bottom: 20px; background: var(--lime); color: var(--ink); border: 0; border-radius: 999px; padding: 12px 18px; font: inherit; font-size: 14px; display: flex; gap: 18px; align-items: center; z-index: 2; cursor: pointer; }
   .card-frame .explore::after { content: "+"; font-size: 20px; line-height: 1; }
   .card-frame .explore.light { background: var(--paper); }
+  .card-frame .explore:hover { background: var(--ink); color: var(--lime); }
+  .card-frame .explore:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+  /* Project view */
+  body.modal-open { overflow: hidden; }
+  .project-dialog { width: min(900px, calc(100% - 32px)); max-height: min(92dvh, 920px); margin: auto; border: 0; border-radius: 4px; background: var(--paper); color: var(--ink); box-shadow: 0 28px 90px rgba(0,0,0,.35); overflow: auto; }
+  .project-dialog::backdrop { background: rgba(9,12,9,.78); backdrop-filter: blur(6px); }
+  .project-dialog-inner { position: relative; }
+  .project-dialog-close { position: sticky; top: 16px; z-index: 3; float: right; width: 42px; height: 42px; margin: 16px 16px -58px 0; border: 0; border-radius: 50%; background: var(--lime); color: var(--ink); font: inherit; font-size: 27px; line-height: 1; cursor: pointer; }
+  .project-dialog-close:focus-visible, .project-dialog-cta:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+  .project-dialog-media { background: var(--dark); min-height: 280px; display: grid; place-items: center; }
+  .project-dialog-media video { width: 100%; max-height: 58dvh; aspect-ratio: 16 / 9; object-fit: contain; background: var(--dark); }
+  .project-dialog-media.is-ugc { display: flex; gap: 12px; padding: 24px; justify-content: center; }
+  .project-dialog-media.is-ugc video { width: min(30%, 220px); max-height: 54dvh; aspect-ratio: 9 / 16; border-radius: 12px; }
+  .project-dialog-placeholder { min-height: 300px; width: 100%; display: grid; place-items: center; padding: 40px; text-align: center; color: var(--lime); font-size: clamp(24px, 4vw, 40px); letter-spacing: -.04em; background: radial-gradient(circle at 50% 35%, #394333, var(--dark) 70%); }
+  .project-dialog-copy { padding: clamp(24px, 5vw, 52px); clear: both; }
+  .project-dialog-copy .eyebrow { color: var(--ink-soft); }
+  .project-dialog-copy h2 { font-size: clamp(36px, 6vw, 64px); font-weight: 500; letter-spacing: -.05em; line-height: 1.02; margin: 14px 0 20px; }
+  .project-dialog-copy p { color: var(--ink-soft); max-width: 620px; }
+  .project-dialog-cta { display: inline-flex; align-items: center; gap: 24px; margin-top: 30px; padding: 13px 20px; border-radius: 999px; background: var(--ink); color: var(--paper); }
+  .project-dialog-cta::after { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--lime); }
 
   /* Services accordion */
   .services { display: grid; grid-template-columns: .9fr 1.1fr; gap: 80px; }
@@ -175,15 +196,18 @@
   .step p { color: var(--ink-soft); font-size: 15px; }
 
   /* Team */
-  .team { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  .team { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
   .team-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-bottom: 72px; }
   .team-intro h2 { font-size: clamp(48px, 6vw, 88px); }
   .team-intro p { color: var(--ink-soft); max-width: 440px; margin-bottom: 16px; }
-  .person { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: end; }
-  .person .portrait { aspect-ratio: 4 / 5; background: linear-gradient(160deg, #3a403a, #1a1d1a); display: grid; place-items: center; color: var(--lime); font-size: 64px; font-weight: 500; letter-spacing: -.05em; }
-  .person h3 { font-size: 30px; font-weight: 400; letter-spacing: -.03em; }
-  .person .role { color: var(--ink-soft); font-size: 14px; margin-bottom: 22px; }
-  .person a { display: block; font-size: 15px; }
+  .person { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: end; min-width: 0; }
+  .person .portrait { aspect-ratio: 4 / 5; overflow: hidden; background: #d6dacf; }
+  .person .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; filter: grayscale(1); transition: filter .4s, transform .7s; }
+  .person:hover .portrait img { filter: grayscale(0); transform: scale(1.025); }
+  .person-info { padding-top: 20px; min-width: 0; }
+  .person h3 { font-size: 30px; font-weight: 500; letter-spacing: -.04em; }
+  .person .role { color: var(--ink-soft); font-size: 13px; margin: 7px 0 27px; }
+  .person a { display: block; margin-top: 10px; font-size: 14px; overflow-wrap: anywhere; }
 
   /* Pricing */
   .prices { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -235,7 +259,8 @@
   /* Responsive */
   @media (max-width: 980px) {
     nav.main a:not(.pill) { display: none; }
-    .hero-grid, .services, .team, .team-intro, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-grid, .services, .team-intro, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .person { display: block; }
     .hero-reel .media { max-width: none; margin: 0; }
     .hero-reel .sticker { left: 12px; }
     .c-half, .c-third { grid-column: span 12; }
@@ -255,9 +280,14 @@
     .card-frame { padding: 16px; }
     .phones { gap: 10px; }
     .phones .media { border-radius: 14px; border-width: 4px; }
+    .project-dialog-media.is-ugc { justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; }
+    .project-dialog-media.is-ugc video { flex: 0 0 min(72%, 240px); width: min(72%, 240px); scroll-snap-align: center; }
     .steps { grid-template-columns: 1fr; }
     .step { border-right: 0; margin-right: 0; border-bottom: 1px solid var(--line); padding-right: 0; }
-    .person { grid-template-columns: 1fr; }
+    .team { gap: 20px; }
+    .person h3 { font-size: 25px; }
+    .person .role { font-size: 12px; line-height: 1.5; min-height: 36px; margin-bottom: 15px; }
+    .person a { font-size: 12px; }
     .row { grid-template-columns: 1fr; }
     .foot-top, .foot-bot { flex-direction: column; align-items: flex-start; gap: 14px; }
   }
@@ -337,7 +367,7 @@
               <div class="media ratio-9x16" data-video="media/ugc-2.mp4"><div class="ph"><span class="tag">Hook: tyst demo</span><span class="play" aria-hidden="true"></span><span class="label">0:10 · Hamnkanalen</span></div></div>
               <div class="media ratio-9x16" data-video="media/ugc-3.mp4"><div class="ph"><span class="tag">Hook: tre sätt</span><span class="play" aria-hidden="true"></span><span class="label">0:10 · spårvagn → Haga</span></div></div>
             </div>
-            <a href="#kontakt" class="explore">Utforska projektet</a>
+            <button type="button" class="explore" aria-label="Utforska ÄLV Kombucha – UGC-serie">Utforska projektet</button>
           </div>
           <div class="card-meta"><h3>ÄLV Kombucha – UGC-serie</h3><span class="n">01</span></div>
           <p class="sub">Tre hooks, en produkt, inspelat i Göteborgs city. Påhittat varumärke och AI-skådespelare, gjort som demo.</p>
@@ -347,7 +377,7 @@
           <div class="card-frame bg-sand">
             <span class="eyebrow">Hyper motion · 16:9</span>
             <div class="media ratio-16x9" data-video="media/motion-1.mp4"><div class="ph"><span class="tag">Produktfilm</span><span class="play" aria-hidden="true"></span><span class="label">Makro · ljus · fysik</span></div></div>
-            <a href="#kontakt" class="explore light">Utforska projektet</a>
+            <button type="button" class="explore light" aria-label="Utforska Produktfilm i 3D-känsla">Utforska projektet</button>
           </div>
           <div class="card-meta"><h3>Produktfilm i 3D-känsla</h3><span class="n">02</span></div>
           <p class="sub">Dramatiskt ljus och detaljer som syns.</p>
@@ -357,7 +387,7 @@
           <div class="card-frame bg-sky">
             <span class="eyebrow">Logoanimation · 16:9</span>
             <div class="media ratio-16x9" data-video="media/logo-1.mp4"><div class="ph"><span class="tag">Logoanimation</span><span class="play" aria-hidden="true"></span><span class="label">Varumärke i rörelse</span></div></div>
-            <a href="#kontakt" class="explore">Utforska projektet</a>
+            <button type="button" class="explore" aria-label="Utforska Oak Design Door – logo i rörelse">Utforska projektet</button>
           </div>
           <div class="card-meta"><h3>Oak Design Door – logo i rörelse</h3><span class="n">03</span></div>
           <p class="sub">Guld som fångar ljuset. Samma kund som vi byggde webbplatsen åt.</p>
@@ -367,7 +397,7 @@
           <div class="card-frame bg-sage">
             <span class="eyebrow">Logoanimation · 16:9</span>
             <div class="media ratio-16x9" data-video="media/logo-2-mredberg.mp4"><div class="ph"><span class="tag">Logoanimation</span><span class="play" aria-hidden="true"></span><span class="label">Sprejad på väggen</span></div></div>
-            <a href="#kontakt" class="explore">Utforska projektet</a>
+            <button type="button" class="explore" aria-label="Utforska Mr Edberg Art – sprejad logga">Utforska projektet</button>
           </div>
           <div class="card-meta"><h3>Mr Edberg Art – sprejad logga</h3><span class="n">04</span></div>
           <p class="sub">En sprejburk skriver ut loggan på väggen, bokstav för bokstav.</p>
@@ -377,7 +407,7 @@
           <div class="card-frame bg-stone">
             <span class="eyebrow">Reklamfilm · upp till 30 s · pågående</span>
             <div class="media ratio-16x9" data-video="media/commercial-1.mp4"><div class="ph"><span class="tag">Reklamfilm</span><span class="play" aria-hidden="true"></span><span class="label">Manus · storyboard · film</span></div></div>
-            <a href="#kontakt" class="explore">Utforska projektet</a>
+            <button type="button" class="explore" aria-label="Utforska Kort reklamfilm med berättelse">Utforska projektet</button>
           </div>
           <div class="card-meta"><h3>Kort reklamfilm med berättelse</h3><span class="n">05</span></div>
           <p class="sub">Början, mitt och slut på en halv minut.</p>
@@ -468,14 +498,14 @@
         </div>
       </div>
       <div class="team">
-        <div class="person">
-          <div class="portrait" aria-hidden="true">M</div>
-          <div><h3>Mattias</h3><p class="role">Kreativ ledare &amp; produktion</p><a href="mailto:mattias@digisoul.se">mattias@digisoul.se</a><a href="tel:+46737255718">073-725 57 18</a></div>
-        </div>
-        <div class="person">
-          <div class="portrait" aria-hidden="true">S</div>
-          <div><h3>Sara</h3><p class="role">Säljare &amp; kundansvarig</p><a href="mailto:sara@digisoul.se">sara@digisoul.se</a><a href="tel:+46733380810">073-338 08 10</a></div>
-        </div>
+        <article class="person">
+          <div class="portrait"><img src="/assets/ac08aa7be63898b3.png" alt="Mattias på Digisoul Media" width="800" height="1000" loading="lazy"></div>
+          <div class="person-info"><h3>Mattias</h3><p class="role">Kreativ ledare &amp; produktion</p><a href="mailto:mattias@digisoul.se">mattias@digisoul.se</a><a href="tel:+46737255718">073-725 57 18</a></div>
+        </article>
+        <article class="person">
+          <div class="portrait"><img src="/assets/634efaa3d37b54bf.png" alt="Sara på Digisoul Media" width="800" height="1000" loading="lazy"></div>
+          <div class="person-info"><h3>Sara</h3><p class="role">Säljare &amp; kundansvarig</p><a href="mailto:sara@digisoul.se">sara@digisoul.se</a><a href="tel:+46733380810">073-338 08 10</a></div>
+        </article>
       </div>
     </div>
   </section>
@@ -567,6 +597,19 @@
   </div>
 </footer>
 
+<dialog class="project-dialog" id="project-dialog" aria-labelledby="project-dialog-title" aria-describedby="project-dialog-description">
+  <div class="project-dialog-inner">
+    <button type="button" class="project-dialog-close" aria-label="Stäng projektet">×</button>
+    <div class="project-dialog-media" id="project-dialog-media"></div>
+    <div class="project-dialog-copy">
+      <span class="eyebrow" id="project-dialog-category"></span>
+      <h2 id="project-dialog-title"></h2>
+      <p id="project-dialog-description"></p>
+      <a class="project-dialog-cta" href="#kontakt">Prata om ett liknande projekt</a>
+    </div>
+  </div>
+</dialog>
+
 <script>
   // Ladda video i varje .media-ruta om filen finns, annars ligger platshållaren kvar.
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -613,6 +656,57 @@
     e.isIntersecting ? v.play().catch(() => {}) : v.pause();
   }), { threshold: .25 });
   document.querySelectorAll('.media').forEach(m => io.observe(m));
+
+  // Samma projektflöde som på huvudsidan, med tillgängliga filmer i dialogen.
+  const projectDialog = document.getElementById('project-dialog');
+  const projectMedia = document.getElementById('project-dialog-media');
+  document.querySelectorAll('.work-grid .explore').forEach(button => button.addEventListener('click', () => {
+    const card = button.closest('.card');
+    document.getElementById('project-dialog-category').textContent = `${card.querySelector('.n').textContent} / ${card.querySelector('.eyebrow').textContent}`;
+    document.getElementById('project-dialog-title').textContent = card.querySelector('h3').textContent;
+    document.getElementById('project-dialog-description').textContent = card.querySelector('.sub').textContent;
+    projectMedia.replaceChildren();
+    const available = [...card.querySelectorAll('.media[data-video]')].filter(box => box.classList.contains('has-video'));
+    projectMedia.classList.toggle('is-ugc', available.length > 1);
+    if (available.length) {
+      available.forEach(box => {
+        const video = document.createElement('video');
+        video.src = box.querySelector('video').currentSrc || new URL(box.dataset.video, document.baseURI).href;
+        video.controls = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.preload = 'metadata';
+        video.setAttribute('aria-label', box.querySelector('.ph .label')?.textContent || card.querySelector('h3').textContent);
+        projectMedia.append(video);
+      });
+    } else {
+      const placeholder = document.createElement('div');
+      placeholder.className = 'project-dialog-placeholder';
+      placeholder.textContent = 'Film kommer snart';
+      projectMedia.append(placeholder);
+    }
+    document.querySelectorAll('.phones .media').forEach(box => {
+      const video = box.querySelector('video');
+      const sound = box.querySelector('.ugc-sound');
+      if (video) video.muted = true;
+      if (sound) {
+        sound.classList.remove('is-on');
+        sound.setAttribute('aria-pressed', 'false');
+        sound.setAttribute('aria-label', `Slå på ljud för UGC-video ${box.dataset.video.match(/ugc-(\d+)\.mp4$/)?.[1]}`);
+      }
+    });
+    projectDialog.showModal();
+    document.body.classList.add('modal-open');
+    if (!reduce) projectMedia.querySelector('video')?.play().catch(() => {});
+  }));
+  projectDialog.querySelector('.project-dialog-close').addEventListener('click', () => projectDialog.close());
+  projectDialog.querySelector('.project-dialog-cta').addEventListener('click', () => projectDialog.close());
+  projectDialog.addEventListener('click', event => { if (event.target === projectDialog) projectDialog.close(); });
+  projectDialog.addEventListener('close', () => {
+    projectMedia.querySelectorAll('video').forEach(video => video.pause());
+    projectMedia.replaceChildren();
+    document.body.classList.remove('modal-open');
+  });
 
   // Pausa rörelse
   const btn = document.getElementById('still-btn');
