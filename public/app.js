@@ -27,7 +27,7 @@ dialog.addEventListener('close', () => document.body.classList.remove('modal-ope
 dialog.addEventListener('click', e => { if (e.target === dialog) { const bounds = dialog.getBoundingClientRect(); if (e.clientX < bounds.left || e.clientX > bounds.right || e.clientY < bounds.top || e.clientY > bounds.bottom) closeDialog(); } });
 document.querySelector('#dialog-contact').addEventListener('click', () => { closeDialog(); document.querySelector('#contact-form input[name=name]').focus({preventScroll:true}); });
 let selectedPackage = '';
-document.querySelectorAll('[data-package]').forEach(link => link.addEventListener('click', () => { selectedPackage = link.dataset.package; document.querySelector('input[value="Webbplats"]').checked = true; document.querySelector('textarea').value = `Vi är intresserade av paketet ${selectedPackage}.\n\n`; }));
+document.querySelectorAll('[data-package]').forEach(link => link.addEventListener('click', () => { selectedPackage = link.dataset.package; document.querySelector('input[value="Webbplats"]').checked = true; const displayPackage = window.DigiSoulI18n?.language === 'en' ? ({ Bas: 'Basic', Mellan: 'Standard', Premium: 'Premium' }[selectedPackage]) : selectedPackage; document.querySelector('textarea').value = window.DigiSoulI18n?.language === 'en' ? `We are interested in the ${displayPackage} package.\n\n` : `Vi är intresserade av paketet ${displayPackage}.\n\n`; }));
 document.querySelector('#contact-form').addEventListener('submit', async e => {
   e.preventDefault();
   const form = e.currentTarget;
