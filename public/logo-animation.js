@@ -15,6 +15,7 @@
     hideTimer = setTimeout(() => {
       intro.hidden = true;
       intro.classList.remove('is-playing', 'is-leaving');
+      window.dispatchEvent(new Event('digisoul:introclosed'));
       if (returnFocus && returnFocus !== document.body) returnFocus.focus({ preventScroll: true });
     }, reducedMotion.matches ? 0 : 380);
   }
@@ -37,7 +38,7 @@
     if (event.key === 'Escape') { event.preventDefault(); closeIntro(); }
     if (event.key === 'Tab') { event.preventDefault(); skip.focus(); }
   });
-  document.querySelectorAll('.header .brand, .footer .brand, .logo-replay').forEach(logo => {
+  document.querySelectorAll('.footer .brand, .logo-replay').forEach(logo => {
     logo.addEventListener('click', event => {
       event.preventDefault();
       if (logo.matches('a')) scrollTo({ top: 0, behavior: reducedMotion.matches ? 'instant' : 'smooth' });

@@ -1,0 +1,18 @@
+/* Small, replayable Digisoul lockup for the two site headers. */
+.header-logo { white-space: nowrap; flex-shrink: 0; }
+.header-logo svg { width: 40px; height: 40px; overflow: visible; flex-shrink: 0; }
+.header-logo .header-leaf { fill: #1a1c19; stroke: #d5ff5f; stroke-width: 8; stroke-linejoin: round; }
+.header-logo .header-letter { display: inline-block; }
+.header-logo .header-initial { -webkit-text-stroke: .045em #d5ff5f; paint-order: stroke fill; }
+.header-logo .header-word, .header-logo .header-descriptor { white-space: nowrap; }
+.header-logo.is-animating .header-leaf { animation: header-leaf-in .6s cubic-bezier(.22,1,.36,1) both; }
+.header-logo.is-animating .header-leaf:nth-of-type(1) { animation-delay: 0s; }
+.header-logo.is-animating svg g:nth-child(2) .header-leaf { animation-delay: .12s; }
+.header-logo.is-animating .header-word .header-letter { animation: header-letter-in .5s cubic-bezier(.22,1,.36,1) calc(.35s + var(--letter-index) * .14s) both; }
+.header-logo.is-animating .header-descriptor .header-letter { animation: header-letter-in .45s cubic-bezier(.22,1,.36,1) calc(1.47s + var(--letter-index) * .112s) both; }
+.header-logo:hover svg { transform: translateY(-2px); transition: transform .25s ease; }
+@keyframes header-leaf-in { from { opacity: 0; transform: translateX(-40%); } to { opacity: 1; transform: none; } }
+@keyframes header-letter-in { from { opacity: 0; transform: translateX(-.35em); filter: blur(3px); } to { opacity: 1; transform: none; filter: blur(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .header-logo *, .header-logo:hover svg { animation: none !important; transition: none !important; }
+}
