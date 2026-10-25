@@ -18,6 +18,7 @@
   };
   const web = {
     'Hoppa till innehåll': 'Skip to content', 'Projekt': 'Projects', 'WEBBSTUDIO': 'WEB STUDIO',
+    'Hoppa över': 'Skip intro', 'Spela upp loggans animation igen': 'Replay the logo animation',
     'Digitalt': 'Digital', 'hantverk.': 'craft.', 'FORM + FUNKTION + KÄNSLA': 'FORM + FUNCTION + FEELING',
     'Vi designar och bygger webbplatser som känns som er.': 'We design and build websites that feel like you.',
     'Och fungerar för era kunder.': 'And work for your customers.',
