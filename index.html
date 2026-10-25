@@ -7,23 +7,15 @@
   <meta name="theme-color" content="#f5f6f2">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d5ff5f'/%3E%3Cpath d='M7.2 8h28c12.8 0 21.6 8.8 21.6 21.6H32.8C18.4 29.6 7.2 20 7.2 8Zm49.6 48H28.8C16 56 7.2 47.2 7.2 34.4h24c14.4 0 25.6 9.6 25.6 21.6Z' fill='%23161916'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="/styles.css">
-  <link rel="stylesheet" href="/logo-animation.css">
+  <link rel="stylesheet" href="/hero-logo.css">
   <link rel="stylesheet" href="/header-logo.css">
   <script src="/i18n.js" defer></script>
   <script src="/app.js" defer></script>
-  <script src="/logo-animation.js" defer></script>
+  <script src="/hero-logo.js" defer></script>
   <script src="/header-logo.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Hoppa till innehåll</a>
-<div class="logo-intro" id="logo-intro" role="dialog" aria-modal="true" aria-label="Digisoul Media" hidden>
-  <button class="logo-intro-skip" type="button">Hoppa över</button>
-  <div class="logo-intro-lockup" aria-hidden="true">
-    <svg class="logo-animation-mark" viewBox="0 0 188 182"><g class="logo-leaf-motion logo-leaf-one"><path class="logo-leaf" d="M10,0 H92 C140,0 172,36 180,78 Q181,84 175,84 H52 C22,84 0,62 0,32 V10 Q0,0 10,0 Z" transform="translate(4 3)"/></g><g class="logo-leaf-motion logo-leaf-two"><path class="logo-leaf" d="M10,0 H92 C140,0 172,36 180,78 Q181,84 175,84 H52 C22,84 0,62 0,32 V10 Q0,0 10,0 Z" transform="translate(4 95)"/></g></svg>
-    <span class="logo-intro-name"><span>D</span><span>i</span><span>g</span><span>i</span><span>s</span><span>o</span><span>u</span><span>l</span></span>
-    <span class="logo-intro-media">MEDIA</span>
-  </div>
-</div>
 <header class="header">
   <a class="brand header-logo" href="#" aria-label="Digisoul Media, startsidan"><svg viewBox="0 0 190 186" aria-hidden="true"><g transform="translate(4 4)"><path class="header-leaf" d="M10,0 H92 C140,0 172,36 180,78 Q181,84 175,84 H52 C22,84 0,62 0,32 V10 Q0,0 10,0 Z"/></g><g transform="translate(4 98)"><path class="header-leaf" d="M10,0 H92 C140,0 172,36 180,78 Q181,84 175,84 H52 C22,84 0,62 0,32 V10 Q0,0 10,0 Z"/></g></svg><span class="brand-lockup" aria-hidden="true"><span class="header-word"><span class="header-letter brand-initial">D</span><span class="header-letter">i</span><span class="header-letter">g</span><span class="header-letter">i</span><span class="header-letter">s</span><span class="header-letter">o</span><span class="header-letter">u</span><span class="header-letter">l</span></span><span class="brand-descriptor header-descriptor"><span class="header-letter">M</span><span class="header-letter">e</span><span class="header-letter">d</span><span class="header-letter">i</span><span class="header-letter">a</span></span></span></a>
   <nav aria-label="Huvudmeny" id="navigation"><a href="#projekt">Projekt</a><a href="#tjanster">Vad vi gör</a><a href="#studion">Studion</a><a href="/media/" data-cross-site>Digisoul Media</a><a class="nav-contact" href="#kontakt">Prata med oss <span class="contact-dot" aria-hidden="true"></span></a><div class="language-switch" role="group" aria-label="Välj språk"><button type="button" data-lang="sv" lang="sv" aria-label="Svenska">SV</button><span aria-hidden="true">/</span><button type="button" data-lang="en" lang="en" aria-label="English">EN</button></div></nav>
@@ -32,7 +24,7 @@
 <main id="main">
 <section class="hero section-pad" aria-labelledby="hero-title">
   <div class="hero-eyebrow"><span>WEBBSTUDIO</span><span>GÖTEBORG, SVERIGE</span></div>
-  <div class="hero-main"><h1 id="hero-title">Digitalt<br>hantverk.<br><span class="last-line">Med <em>själ.</em></span></h1><div class="hero-side"><button class="brand-sculpture logo-replay" type="button" aria-label="Spela upp loggans animation igen"><svg class="logo-animation-mark" viewBox="0 0 188 182" aria-hidden="true"><g class="logo-leaf-motion logo-leaf-one"><path class="logo-leaf" d="M10,0 H92 C140,0 172,36 180,78 Q181,84 175,84 H52 C22,84 0,62 0,32 V10 Q0,0 10,0 Z" transform="translate(4 3)"/></g><g class="logo-leaf-motion logo-leaf-two"><path class="logo-leaf" d="M10,0 H92 C140,0 172,36 180,78 Q181,84 175,84 H52 C22,84 0,62 0,32 V10 Q0,0 10,0 Z" transform="translate(4 95)"/></g></svg><span class="hero-wordmark" aria-hidden="true"><span class="hero-brand-name"><b class="brand-initial">D</b>igisoul</span><span>Media</span></span><span class="sculpture-caption" aria-hidden="true">FORM + FUNKTION + KÄNSLA</span></button><p>Vi designar och bygger webbplatser som känns som er.<br>Och fungerar för era kunder.</p><a class="button button-dark" href="#projekt">Se våra projekt <span class="button-dot" aria-hidden="true"></span></a></div></div>
+  <div class="hero-main"><h1 id="hero-title">Digitalt<br>hantverk.<br><span class="last-line">Med <em>själ.</em></span></h1><div class="hero-side"><button class="brand-sculpture hero-logo-replay" type="button" aria-label="Spela upp loggans animation igen"><svg class="hero-logo-mark" viewBox="0 0 188 182" aria-hidden="true"><g transform="translate(4 3)"><path class="hero-logo-leaf" d="M10,0 H92 C140,0 172,36 180,78 Q181,84 175,84 H52 C22,84 0,62 0,32 V10 Q0,0 10,0 Z"/></g><g transform="translate(4 95)"><path class="hero-logo-leaf" d="M10,0 H92 C140,0 172,36 180,78 Q181,84 175,84 H52 C22,84 0,62 0,32 V10 Q0,0 10,0 Z"/></g></svg><span class="hero-wordmark" aria-hidden="true"><span class="hero-brand-name"><span class="hero-logo-letter brand-initial">D</span><span class="hero-logo-letter">i</span><span class="hero-logo-letter">g</span><span class="hero-logo-letter">i</span><span class="hero-logo-letter">s</span><span class="hero-logo-letter">o</span><span class="hero-logo-letter">u</span><span class="hero-logo-letter">l</span></span><span class="hero-logo-media">MEDIA</span></span><span class="sculpture-caption" aria-hidden="true">FORM + FUNKTION + KÄNSLA</span></button><p class="hero-logo-copy"><span>Vi designar och bygger webbplatser som känns som er.</span><span>Och fungerar för era kunder.</span></p><a class="button button-dark" href="#projekt">Se våra projekt <span class="button-dot" aria-hidden="true"></span></a></div></div>
   <div class="hero-bottom"><span>Webbdesign / Utveckling / Identitet</span><span>Scrolla och lär känna oss <span aria-hidden="true">↓</span></span></div>
 </section>
 <section class="work section-pad" id="projekt" aria-labelledby="work-title">
