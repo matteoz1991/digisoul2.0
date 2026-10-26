@@ -17,10 +17,8 @@
   }
 
   logo.addEventListener('click', play);
-  let seen = false;
-  try {
-    seen = localStorage.getItem('digisoul-media-hero-seen') === '1';
-    localStorage.setItem('digisoul-media-hero-seen', '1');
-  } catch {}
-  if (!seen) play();
+  play();
+  window.addEventListener('pageshow', event => {
+    if (event.persisted) play();
+  });
 })();
